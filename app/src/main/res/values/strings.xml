@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Gym_Buddy_Alpha_</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Welcome Page(profile page) Strings-->
+    <string name="welcome_title">Welcome!</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_match">MatchActivity</string>
+</resources>

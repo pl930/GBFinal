@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_options">
+        <item>Matching Preferences</item>
+        <item>Settings</item>
+        <item>Help</item>
+        <item>Share</item>
+    </string-array>
+
+</resources>
