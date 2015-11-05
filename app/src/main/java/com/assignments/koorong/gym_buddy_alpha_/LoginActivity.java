@@ -1,5 +1,6 @@
 package com.assignments.koorong.gym_buddy_alpha_;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -20,6 +21,7 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.assignments.koorong.gym_buddy_alpha_.R;
 import com.assignments.koorong.gym_buddy_alpha_.SignupActivity;
+import com.assignments.koorong.gym_buddy_alpha_.db.UserDataSource;
 
 import java.net.URL;
 
@@ -29,6 +31,7 @@ import butterknife.InjectView;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
+    UserDataSource ds = new UserDataSource(this);
 
     @InjectView(R.id.input_email)
     EditText _emailText;
@@ -45,10 +48,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
 
+
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+
 
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
@@ -70,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+
+
     public void login() {
         Log.d(TAG, "Login");
 
@@ -86,17 +93,19 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        LoginAuth login = new LoginAuth();
-        login.execute();
+        /*LoginAuth login = new LoginAuth();
+        login.execute();*/
 
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
+                        LoginAuth login = new LoginAuth();
+                        login.execute();
                         progressDialog.dismiss();
 
                     }
-                }, 2000);
+                }, 1000);
     }
 
 
@@ -125,7 +134,9 @@ public class LoginActivity extends AppCompatActivity {
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
         Intent i = new Intent(getApplicationContext(), MatchActivity.class);
+        //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
+        finish();
     }
 
     public void onLoginFailed() {
@@ -147,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("between 4 and 10 alphanumeric characters");
+            _passwordText.setError("between 6 and 15 alphanumeric characters");
             valid = false;
         } else {
             _passwordText.setError(null);
@@ -176,6 +187,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (selectedUser.getPassword().equalsIgnoreCase(password)) {
                     loginSuccess = true;
+                    ds.setAppUser(selectedUser.getFirstName(), selectedUser.getLastName());
                 } else {
                     loginSuccess = false;
                 }

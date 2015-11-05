@@ -29,10 +29,10 @@
     <!-- The navigation drawer -->
     <ListView
         android:id="@+id/left_drawer"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="left|start"
-        android:background="#ffffff"
+        android:background="#FFFFFF"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp" />
@@ -40,4 +40,4 @@
 </android.support.v4.widget.DrawerLayout>
 
     <!--</RelativeLayout>-->
-<!-- From: file:/C:/Users/Peter%20Liu/Downloads/gym_buddy-master/app/src/main/res/layout/activity_match.xml -->
+<!-- From: file:/W:/GitHub%20Projects/GBFinal/app/src/main/res/layout/activity_match.xml -->

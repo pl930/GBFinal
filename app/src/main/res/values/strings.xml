@@ -9,4 +9,26 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_match">MatchActivity</string>
+
+    <string-array name="nav_drawer_items">
+        <item>Matching Preferences</item>
+        <item>Settings</item>
+        <item>Help</item>
+        <item>Share</item>
+    </string-array>
+
+    <string-array name="nav_drawer_subheads">
+        <item>Change who you\'re matched with</item>
+        <item>Notifications, your account, app settings</item>
+        <item>FAQ, Contact Us, Our Story</item>
+        <item>Sharing is Caring</item>
+    </string-array>
+
+    <array name="nav_drawer_icons">
+        <item>@drawable/magnifier13</item>
+        <item>@drawable/gears10</item>
+        <item>@drawable/question30</item>
+        <item>@drawable/social24</item>
+    </array>
+
 </resources>

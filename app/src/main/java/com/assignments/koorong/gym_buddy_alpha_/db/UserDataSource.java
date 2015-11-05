@@ -61,7 +61,7 @@ public class UserDataSource {
     }
 
     public List<User> getMatches(){
-        List<User> matchList = new ArrayList<User>();
+        List<User> matchList = new ArrayList<>();
         String select = "SELECT * FROM " + MATCHES_TABLE_NAME;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(select, null);
@@ -74,6 +74,12 @@ public class UserDataSource {
             }while(cursor.moveToNext());
         }
         return matchList;
+    }
+
+    public void setAppUser(String fName, String lName){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String insert = "INSERT INTO " + APPUSER_TABLE_NAME + " ('fName', 'lName') VALUES ('" + fName + "', '" + lName + "')";
+        db.rawQuery(insert, null);
     }
 
 }
