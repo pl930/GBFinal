@@ -14,10 +14,10 @@ public class SignupActivity$$ViewInjector<T extends com.assignments.koorong.gym_
     target._emailText = finder.castView(view, 2131558500, "field '_emailText'");
     view = finder.findRequiredView(source, 2131558501, "field '_passwordText'");
     target._passwordText = finder.castView(view, 2131558501, "field '_passwordText'");
-    view = finder.findRequiredView(source, 2131558510, "field '_signupButton'");
-    target._signupButton = finder.castView(view, 2131558510, "field '_signupButton'");
-    view = finder.findRequiredView(source, 2131558511, "field '_loginLink'");
-    target._loginLink = finder.castView(view, 2131558511, "field '_loginLink'");
+    view = finder.findRequiredView(source, 2131558511, "field '_signupButton'");
+    target._signupButton = finder.castView(view, 2131558511, "field '_signupButton'");
+    view = finder.findRequiredView(source, 2131558512, "field '_loginLink'");
+    target._loginLink = finder.castView(view, 2131558512, "field '_loginLink'");
   }
 
   @Override public void reset(T target) {
