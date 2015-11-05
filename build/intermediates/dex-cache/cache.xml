@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\classes-43c606e1358388f38ad18266a9975cbaeba0da49.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-cognito\2.2.7\4faaec06a8c1d32f951bc43eef178e038e833ab6\aws-android-sdk-cognito-2.2.7.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4faaec06a8c1d32f951bc43eef178e038e833ab6">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\aws-android-sdk-cognito-2.2.7-68b4a1f0d20e318a32d4b358a42de932eebbef06.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\classes-8923c94d2dc731a5c3489a77b056bff83dbe8570.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\gson-2.2.4-325738c4d2fb57aff057e869c080d0d1fc349eaa.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-f7ebf9b780c5f79604802b9360d1771fc532c950.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-s3\2.2.7\d9ce38097ea4a73120a2306c752b3489b3d5d358\aws-android-sdk-s3-2.2.7.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d9ce38097ea4a73120a2306c752b3489b3d5d358">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\aws-android-sdk-s3-2.2.7-e77fda185a4b9b707909cd5db2e45d11c87d8556.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb-mapper\2.2.7\1ef8623dc79338ebbbe41a91524a007f8ec0c02e\aws-android-sdk-ddb-mapper-2.2.7.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1ef8623dc79338ebbbe41a91524a007f8ec0c02e">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-mapper-2.2.7-a36c58230e79f029c5684462270b1dee5dfcf8cb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\classes-f440a603b8ecc49d55373cc1b4388e4d3b9a3ee5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-0f21f46df229f5a0a3f2a22571fb92a842bb7228.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-sdb\2.2.7\4b37d4ac119ab744dcf2a382d9cd6c55a9a0eab7\aws-android-sdk-sdb-2.2.7.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4b37d4ac119ab744dcf2a382d9cd6c55a9a0eab7">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\aws-android-sdk-sdb-2.2.7-86f6bd6f660f5c3d7da6ef1820f72310decf6e89.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb\2.2.7\f52094ca1693941f748306ea992908e3628217db\aws-android-sdk-ddb-2.2.7.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f52094ca1693941f748306ea992908e3628217db">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-2.2.7-c1b9685643bb34b696a987b0abfe598d0ebc37f0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\butterknife-6.1.0-b0fc2189190c9b81e18c2d6eed3f5d0609ceeeb2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter Liu\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-core\2.2.7\ad6666536a981585784a592f1df7caf81c118289\aws-android-sdk-core-2.2.7.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ad6666536a981585784a592f1df7caf81c118289">
+        <dex dex="C:\Users\Peter Liu\Downloads\gym_buddy-master\app\build\intermediates\pre-dexed\debug\aws-android-sdk-core-2.2.7-8b921dc28ce8ac99a0cd776c8bb3df573cda16ef.jar" />
+    </item>
+
+</items>
