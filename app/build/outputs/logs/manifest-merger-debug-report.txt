@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:2:1-40:12
 	xmlns:android
 		ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -36,7 +36,7 @@ ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:13:5-67
 	android:name
 		ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:13:22-64
 application
-ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:15:5-43:19
+ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:15:5-38:19
 MERGED from [com.android.support:appcompat-v7:23.0.1] W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.0.1] W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:23.0.1] W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\AndroidManifest.xml:22:5-20
@@ -88,7 +88,7 @@ ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:32:9-34:5
 	android:name
 		ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:33:13-43
 activity#com.assignments.koorong.gym_buddy_alpha_.MatchActivity
-ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:35:9-37:51
+ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:35:9-37:52
 	android:theme
 		ADDED from W:\GitHub Projects\GBFinal\app\src\main\AndroidManifest.xml:37:13-49
 	android:name

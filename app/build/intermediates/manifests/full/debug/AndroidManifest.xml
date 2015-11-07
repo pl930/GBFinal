@@ -41,13 +41,6 @@
         <activity
             android:name="com.assignments.koorong.gym_buddy_alpha_.MatchActivity"
             android:theme="@style/AppTheme.Dark" />
-        <!--
-        <activity
-            android:name=".MatchActivity"
-            android:label="@string/title_activity_match"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        -->
     </application>
 
 </manifest>

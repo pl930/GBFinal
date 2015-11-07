@@ -34,12 +34,7 @@
             android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".MatchActivity"
-            android:theme="@style/AppTheme.Dark"/>
-        <!--<activity
-            android:name=".MatchActivity"
-            android:label="@string/title_activity_match"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>-->
+            android:theme="@style/AppTheme.Dark" />
     </application>
 
 </manifest>
