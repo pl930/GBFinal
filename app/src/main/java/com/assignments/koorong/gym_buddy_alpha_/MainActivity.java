@@ -8,14 +8,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    SessionManager sm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sm = new SessionManager(getApplicationContext());
+        sm.checkLogin();
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        Intent i = new Intent(getApplicationContext(), MatchActivity.class);
+        startActivity(i);
         finish();
     }
 

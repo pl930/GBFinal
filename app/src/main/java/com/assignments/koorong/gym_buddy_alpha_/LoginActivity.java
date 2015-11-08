@@ -3,6 +3,7 @@ package com.assignments.koorong.gym_buddy_alpha_;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -33,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     private static final int REQUEST_SIGNUP = 0;
     UserDataSource ds = new UserDataSource(this);
     ProgressDialog progressDialog;
+    SharedPreferences pref;
+    SessionManager sm;
 
     @InjectView(R.id.input_email)
     EditText _emailText;
@@ -48,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
+        sm = new SessionManager(getApplicationContext());
 
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -157,6 +161,15 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
+    /*public void saveToPrefs(String fName, String lName, String email){
+        pref = getApplicationContext().getSharedPreferences("LoginUser", 0);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("first_name", fName)
+                .putString("list_name", lName)
+                .putString("email", email)
+                .commit();
+    }*/
+
     private class LoginAuth extends AsyncTask<Void, Void, Void> {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
@@ -181,7 +194,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (selectedUser.getPassword().equalsIgnoreCase(password)) {
                     loginSuccess = true;
-                    ds.setAppUser(selectedUser.getFirstName(), selectedUser.getLastName());
+                    sm.createLoginSession(selectedUser.getFirstName(), selectedUser.getLastName(), selectedUser.getEmail());
                 } else {
                     loginSuccess = false;
                 }
