@@ -15,11 +15,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sm = new SessionManager(getApplicationContext());
-        sm.checkLogin();
 
-        Intent i = new Intent(getApplicationContext(), MatchActivity.class);
-        startActivity(i);
-        finish();
+        if (!sm.isLoggedIn()) {
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+            finish();
+        }else{
+            Intent i = new Intent(getApplicationContext(), MatchActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     @Override

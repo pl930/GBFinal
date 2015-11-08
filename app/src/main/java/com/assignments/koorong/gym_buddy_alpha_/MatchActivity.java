@@ -136,17 +136,17 @@ public class MatchActivity extends AppCompatActivity {
             case 2:
                 fm = getFragmentManager();
                 SettingsFragment sf = new SettingsFragment();
-                fm.beginTransaction().replace(R.id.content_frame, sf).commit();
+                fm.beginTransaction().replace(R.id.content_frame, sf).addToBackStack(null).commit();
                 break;
             case 3:
                 fm = getFragmentManager();
                 HelpFragment hf = new HelpFragment();
-                fm.beginTransaction().replace(R.id.content_frame, hf).commit();
+                fm.beginTransaction().replace(R.id.content_frame, hf).addToBackStack(null).commit();
                 break;
             case 4:
                 fm = getFragmentManager();
                 ShareFragment shf = new ShareFragment();
-                fm.beginTransaction().replace(R.id.content_frame, shf).commit();
+                fm.beginTransaction().replace(R.id.content_frame, shf).addToBackStack(null).commit();
                 break;
         }
     }
