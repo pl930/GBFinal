@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
     UserDataSource ds = new UserDataSource(this);
+    ProgressDialog progressDialog;
 
     @InjectView(R.id.input_email)
     EditText _emailText;
@@ -87,25 +88,14 @@ public class LoginActivity extends AppCompatActivity {
 
         _loginButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
-                R.style.AppTheme_Dark_Dialog);
-        progressDialog.setIndeterminate(true);
+        progressDialog = new ProgressDialog(LoginActivity.this, R.style.AppTheme_Dark_Dialog);
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
-
-        /*LoginAuth login = new LoginAuth();
-        login.execute();*/
+        new LoginAuth().execute();
 
 
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        LoginAuth login = new LoginAuth();
-                        login.execute();
-                        progressDialog.dismiss();
 
-                    }
-                }, 1000);
+
     }
 
 
@@ -172,6 +162,10 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
         boolean loginSuccess;
 
+        public void onPreExecute(){
+
+        }
+
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -204,8 +198,10 @@ public class LoginActivity extends AppCompatActivity {
             super.onPostExecute(v);
             if (loginSuccess) {
                 onLoginSuccess();
+                progressDialog.dismiss();
             } else {
                 onLoginFailed();
+                progressDialog.dismiss();
             }
 
         }

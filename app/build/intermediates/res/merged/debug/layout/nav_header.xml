@@ -28,9 +28,7 @@
             android:layout_marginLeft="16dp"
             android:textColor="#ffffff"
             android:textSize="14sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/email"
@@ -40,9 +38,7 @@
             android:layout_marginTop="5dp"
             android:textColor="#ffffff"
             android:textSize="14sp"
-            android:textStyle="normal"
-
-            />
+            android:textStyle="normal" />
     </LinearLayout>
 
 </FrameLayout><!-- From: file:/W:/GitHub%20Projects/GBFinal/app/src/main/res/layout/nav_header.xml -->
