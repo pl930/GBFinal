@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:fromYDelta="0%"
+        android:toYDelta="100%"
+        android:interpolator="@android:anim/decelerate_interpolator"
+        android:duration="@android:integer/config_mediumAnimTime"
+        />
+</set><!-- From: file:/W:/GitHub%20Projects/GBFinal/app/src/main/res/animator/exit.xml -->

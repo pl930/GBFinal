@@ -2128,9 +2128,10 @@ containing a value of this type.
         public static final int drawer_list_selector=0x7f020041;
         public static final int gears10=0x7f020042;
         public static final int magnifier13=0x7f020043;
-        public static final int notification_template_icon_bg=0x7f020046;
-        public static final int question30=0x7f020044;
-        public static final int social24=0x7f020045;
+        public static final int nav_header_bg=0x7f020044;
+        public static final int notification_template_icon_bg=0x7f020047;
+        public static final int question30=0x7f020045;
+        public static final int social24=0x7f020046;
     }
     public static final class id {
         public static final int UserMatches=0x7f0e0076;

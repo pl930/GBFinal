@@ -549,9 +549,10 @@ int drawable design_snackbar_background 0x7f020040
 int drawable drawer_list_selector 0x7f020041
 int drawable gears10 0x7f020042
 int drawable magnifier13 0x7f020043
-int drawable notification_template_icon_bg 0x7f020046
-int drawable question30 0x7f020044
-int drawable social24 0x7f020045
+int drawable nav_header_bg 0x7f020044
+int drawable notification_template_icon_bg 0x7f020047
+int drawable question30 0x7f020045
+int drawable social24 0x7f020046
 int id UserMatches 0x7f0e0076
 int id action0 0x7f0e0079
 int id action_bar 0x7f0e0055
