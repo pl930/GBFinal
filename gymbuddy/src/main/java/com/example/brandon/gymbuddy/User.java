@@ -18,6 +18,20 @@ public class User {
     private String email;
     //private Boolean hardCover;
 
+    /******************************************************************************
+     * Mike's Notes *                                                             *
+     * TODO: Add Members Below                                                    *
+     *                                                                            *
+     * private gender                                                             *
+     * gender preferences: String[] mGenderPreferences                            *
+     *                                                                            *
+     * private age                                                                *
+     * exercise preferences: String[] mExercisePreferences                        *
+     *                                                                            *
+     * importance of preferences                                                  *
+     *                                                                            *
+     *****************************************************************************/
+
     @Override
     public String toString() {
         return
