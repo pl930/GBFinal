@@ -42,12 +42,13 @@ public class MatchUserFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_match_user, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
-        new getItems().execute();
+        /*new getItems().execute();*/
+        displayIds(view);
         return view;
     }
 
 
-    private class getItems extends AsyncTask<Void, String, Void> {
+    /*private class getItems extends AsyncTask<Void, String, Void> {
         ArrayList<User> ids;
         String location;
         public void onPreExecute() {
@@ -120,12 +121,18 @@ public class MatchUserFragment extends Fragment {
             Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
             displayIds(ids);
         }
-    }
+    }*/
 
 
-    private void displayIds(ArrayList<User> users) {
+    private void displayIds(View view) {
+        ArrayList<User> users = new ArrayList<>();
+        User user = new User();
+        user.setFirstName("Peter");
+        user.setLastName("Liu");
+        user.setEmail("peterliu930@gmail.com");
+        users.add(user);
         MatchUserAdapter adapter = new MatchUserAdapter(getActivity().getApplicationContext(), R.layout.match_user_item, users);
-        ListView userList = (ListView) getActivity().findViewById(R.id.UserMatches);
+        ListView userList = (ListView)view.findViewById(R.id.UserMatches);
         userList.setAdapter(adapter);
 
     }
