@@ -20,6 +20,7 @@ public class SessionManager {
     public static final String KEY_FNAME = "FirstName";
     public static final String KEY_LNAME = "LastName";
     public static final String KEY_EMAIL = "Email";
+    public static final String KEY_LOCATION = "location";
 
     public SessionManager(Context context){
         this._context = context;
@@ -27,11 +28,12 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    public void createLoginSession(String fname, String lname, String email){
+    public void createLoginSession(String fname, String lname, String email, String location){
         editor.putBoolean(IS_LOGGED_IN, true)
                 .putString(KEY_FNAME, fname)
                 .putString(KEY_LNAME, lname)
                 .putString(KEY_EMAIL, email)
+                .putString(KEY_LOCATION, location)
                 .commit();
     }
 
@@ -51,7 +53,7 @@ public class SessionManager {
     public HashMap<String, String> getUserDetails(){
         HashMap<String, String> user = new HashMap<String, String>();
         user.put(KEY_FNAME, pref.getString(KEY_FNAME, null));
-        user.put(KEY_EMAIL, pref.getString(KEY_EMAIL, null));
+        user.put(KEY_EMAIL, pref.getString(KEY_LOCATION, null));
         return user;
     }
 
