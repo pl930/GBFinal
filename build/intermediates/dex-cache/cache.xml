@@ -2,95 +2,95 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\butterknife-6.1.0-e65a7aac3b891191b5a01ddc0d01598bf4730c0f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-core\2.2.8\3e2b074a88e5ed4c58eeb4af2a55e604e314b93d\aws-android-sdk-core-2.2.8.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="3e2b074a88e5ed4c58eeb4af2a55e604e314b93d">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-core-2.2.8-f0871c98ca42490679b217752eb39c14dcc3ea53.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-sdb\2.2.7\4b37d4ac119ab744dcf2a382d9cd6c55a9a0eab7\aws-android-sdk-sdb-2.2.7.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="4b37d4ac119ab744dcf2a382d9cd6c55a9a0eab7">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-sdb-2.2.7-7cece7883766f2f789aa44ca3f2e53f64fe0df95.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-cognito\2.2.8\9422788e375396a056e9542a82238115a3682bdb\aws-android-sdk-cognito-2.2.8.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="9422788e375396a056e9542a82238115a3682bdb">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-cognito-2.2.8-80bd702617a97f7308ad2ca566daa3b5ebf4783b.jar" />
-    </item>
-    <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jar="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\classes-881c5dc8eb7dbd4bb5be0d1fd12670e1b1c2db39.jar" />
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\classes-f6fd4c1ab0c7311f2e25ed6c687b488b3eab45ae.jar" />
     </item>
     <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb-mapper\2.2.8\9c53790e9006c0ef098714201cb2d5f5672f6b3\aws-android-sdk-ddb-mapper-2.2.8.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="09c53790e9006c0ef098714201cb2d5f5672f6b3">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-mapper-2.2.8-1a0289f263741d70c21f46fa764ea944e9d51cbb.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-s3\2.2.8\921e4e1b88dbefd338484a82006b1011ecd5e7d4\aws-android-sdk-s3-2.2.8.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="921e4e1b88dbefd338484a82006b1011ecd5e7d4">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-s3-2.2.8-28eb5a3b2cf12d1df48abcd346bd5f6d5b0157cc.jar" />
-    </item>
-    <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\classes-577f00e3989ee38e64131f72205d0836cd077df0.jar" />
-    </item>
-    <item
-        jar="E:\Users\Peter\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-6f223528a6e1daa42f2ae2cdb6f43c4d84629250.jar" />
-    </item>
-    <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-9992b350ef7a2fa4f99d5bd0a98da5665cf2ff76.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\gson-2.2.4-215253c72b8d86eb8eab52d010c473b400805145.jar" />
-    </item>
-    <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\classes-4b7c7127e21f00eeee1aa47eeaf7072ec0a138a1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb\2.2.8\7e54e68f16bfbfd2a4f64d12740e104f52c33ff0\aws-android-sdk-ddb-2.2.8.jar"
+        jar="C:\Users\Brandon\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb\2.2.8\7e54e68f16bfbfd2a4f64d12740e104f52c33ff0\aws-android-sdk-ddb-2.2.8.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="7e54e68f16bfbfd2a4f64d12740e104f52c33ff0">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-2.2.8-46fcd0491bb023cea844d88759710ae07f4d68dc.jar" />
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-2.2.8-f5b25e37af27eb129030edc8eb491d4016a6a752.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\gson-2.2.4-94f3e1e0216f07d2e685ae19582eaeb59df48eec.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-cognito\2.2.8\9422788e375396a056e9542a82238115a3682bdb\aws-android-sdk-cognito-2.2.8.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9422788e375396a056e9542a82238115a3682bdb">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-cognito-2.2.8-5feabcb9b60e74ebc0e34ec09f48002cb8c51def.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-54d35495536b7786793f4fc8e2f3d70db73fc7e0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\classes-b30d4ce1fd99ff6b3c3ddba41f89b6f4e6b99b9b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb-mapper\2.2.8\9c53790e9006c0ef098714201cb2d5f5672f6b3\aws-android-sdk-ddb-mapper-2.2.8.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="09c53790e9006c0ef098714201cb2d5f5672f6b3">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-mapper-2.2.8-0109ac3929f01e71b7c61c6417846604eb8cb2a9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-core\2.2.8\3e2b074a88e5ed4c58eeb4af2a55e604e314b93d\aws-android-sdk-core-2.2.8.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3e2b074a88e5ed4c58eeb4af2a55e604e314b93d">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-core-2.2.8-5457ffc6a979324696600bd619f5c817d8ba8e52.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\butterknife-6.1.0-fb96b8677a32ba58c2fd832b5264c86e87ba33af.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-10800dae06328a22a1d33cc8cd3915acba410ab0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-sdb\2.2.8\eb7b3c9c62ed01d5af8cdc0231bb753c8a7774c3\aws-android-sdk-sdb-2.2.8.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="eb7b3c9c62ed01d5af8cdc0231bb753c8a7774c3">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-sdb-2.2.8-06fc3351e2ddb577996cc996d3a974dbe832c314.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\classes-585466acb4b20a05e5b677ab2e3043fe854aba02.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brandon\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-s3\2.2.8\921e4e1b88dbefd338484a82006b1011ecd5e7d4\aws-android-sdk-s3-2.2.8.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="921e4e1b88dbefd338484a82006b1011ecd5e7d4">
+        <dex dex="C:\Users\Brandon\Documents\AndroidGit2\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-s3-2.2.8-8c440bdb43114c89b21c3215c66f5c7091fe99a9.jar" />
     </item>
 
 </items>

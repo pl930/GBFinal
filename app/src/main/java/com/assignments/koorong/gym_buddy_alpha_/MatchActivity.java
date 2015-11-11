@@ -173,4 +173,7 @@ public class MatchActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
+
+
+
 }

@@ -44,6 +44,14 @@
             android:name="com.example.brandon.gymbuddy.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name="com.example.brandon.gymbuddy.MatchingActivity"
+            android:label="stuff" >
+        </activity>
+        <activity
+            android:name="com.example.brandon.gymbuddy.ProfileActivity"
+            android:label="stuff2" >
+        </activity>
     </application>
 
 </manifest>
