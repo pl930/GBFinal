@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.auth.CognitoCredentialsProvider;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
@@ -39,11 +40,6 @@ public class MatchUserFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_match_user, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
-        fetchItems(view, sm.getUserDetails().get("KEY_LOCATION"));
-        MatchUserAdapter adapter = new MatchUserAdapter(getActivity().getApplicationContext(), R.layout.match_user_item, fetchItems(view, sm.getUserDetails().get("KEY_LOCATION")));
-        ListView userList = (ListView) getActivity().findViewById(R.id.UserMatches);
-        userList.setAdapter(adapter);
-
         return view;
     }
 
@@ -51,18 +47,20 @@ public class MatchUserFragment extends Fragment {
     private class getItems extends AsyncTask<Void, String, Void> {
 
         public void onPreExecute(){
-
+            sm = new SessionManager(getContext());
         }
         @Override
-        protected Void doInBackground(Void... location) {
+        protected Void doInBackground(Void... params) {
             CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
                     getContext(),
                     "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
                     Regions.US_EAST_1 // Region
             );
             AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+            //DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+            //User selectedUser = mapper.load(User.class, email);
 
-
+            String location = sm.getUserDetails().get("KEY_LOCATION");
             ArrayList<User> ids = new ArrayList<User>();
 
             ScanResult result = null;
@@ -125,75 +123,77 @@ public class MatchUserFragment extends Fragment {
 
 
 
-   private static void displayIds(ArrayList<User> users)
+   private  void displayIds(ArrayList<User> users)
    {
-
+       MatchUserAdapter adapter = new MatchUserAdapter(getActivity().getApplicationContext(), R.layout.match_user_item, users);
+       ListView userList = (ListView) getActivity().findViewById(R.id.UserMatches);
+       userList.setAdapter(adapter);
 
    }
     //returns an ArrayList of users
-    private static ArrayList<User> fetchItems(View view, String location) {
-
-        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                view.getContext(),
-                "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
-                Regions.US_EAST_1 // Region
-        );
-
-        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-
-
-        ArrayList<User> ids = new ArrayList<User>();
-
-        ScanResult result = null;
-
-        do{
-            ScanRequest req = new ScanRequest();
-            req.setTableName("Users");
-
-            if(result != null){
-                req.setExclusiveStartKey(result.getLastEvaluatedKey());
-            }
-
-            result = ddbClient.scan(req);
-
-            List<Map<String, AttributeValue>> rows = result.getItems();
-
-            for(Map<String, AttributeValue> map : rows){
-                try{
-                    User user = new User();
-                    AttributeValue v = map.get("Location");
-                    if (!location.isEmpty()){
-                        if (v.getS().equalsIgnoreCase(location)) {
-                            user.setLocation(v.getS());
-                            v = map.get("FirstName");
-                            user.setFirstName(v.getS());
-                            v = map.get("LastName");
-                            user.setLastName(v.getS());
-                            v = map.get("Email");
-                            user.setEmail(v.getS());
-                            ids.add(user);
-                        }
-                    }else{
-                        user.setLocation(v.getS());
-                        v = map.get("FirstName");
-                        user.setFirstName(v.getS());
-                        v = map.get("LastName");
-                        user.setLastName(v.getS());
-                        v = map.get("Email");
-                        user.setEmail(v.getS());
-                        ids.add(user);
-                    }
-                } catch (NumberFormatException e){
-                    System.out.println(e.getMessage());
-                }
-            }
-        } while(result.getLastEvaluatedKey() != null);
-
-
-        //System.out.println("Result size: " + ids.size());
-
-        return ids;
-    }
+//    private static ArrayList<User> fetchItems(View view, String location) {
+//
+//        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+//                view.getContext(),
+//                "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
+//                Regions.US_EAST_1 // Region
+//        );
+//
+//        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+//
+//
+//        ArrayList<User> ids = new ArrayList<User>();
+//
+//        ScanResult result = null;
+//
+//        do{
+//            ScanRequest req = new ScanRequest();
+//            req.setTableName("Users");
+//
+//            if(result != null){
+//                req.setExclusiveStartKey(result.getLastEvaluatedKey());
+//            }
+//
+//            result = ddbClient.scan(req);
+//
+//            List<Map<String, AttributeValue>> rows = result.getItems();
+//
+//            for(Map<String, AttributeValue> map : rows){
+//                try{
+//                    User user = new User();
+//                    AttributeValue v = map.get("Location");
+//                    if (!location.isEmpty()){
+//                        if (v.getS().equalsIgnoreCase(location)) {
+//                            user.setLocation(v.getS());
+//                            v = map.get("FirstName");
+//                            user.setFirstName(v.getS());
+//                            v = map.get("LastName");
+//                            user.setLastName(v.getS());
+//                            v = map.get("Email");
+//                            user.setEmail(v.getS());
+//                            ids.add(user);
+//                        }
+//                    }else{
+//                        user.setLocation(v.getS());
+//                        v = map.get("FirstName");
+//                        user.setFirstName(v.getS());
+//                        v = map.get("LastName");
+//                        user.setLastName(v.getS());
+//                        v = map.get("Email");
+//                        user.setEmail(v.getS());
+//                        ids.add(user);
+//                    }
+//                } catch (NumberFormatException e){
+//                    System.out.println(e.getMessage());
+//                }
+//            }
+//        } while(result.getLastEvaluatedKey() != null);
+//
+//
+//        //System.out.println("Result size: " + ids.size());
+//
+//        return ids;
+//    }
 
 
 }

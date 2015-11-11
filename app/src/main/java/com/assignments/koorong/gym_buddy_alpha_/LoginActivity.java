@@ -194,7 +194,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (selectedUser.getPassword().equalsIgnoreCase(password)) {
                     loginSuccess = true;
-                    sm.createLoginSession(selectedUser.getFirstName(), selectedUser.getLastName(), selectedUser.getEmail());
+                    sm.createLoginSession(selectedUser.getFirstName(), selectedUser.getLastName(), selectedUser.getEmail(), selectedUser.getLocation());
                 } else {
                     loginSuccess = false;
                 }
