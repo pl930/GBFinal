@@ -15,8 +15,8 @@ public class SessionManager {
     SharedPreferences.Editor editor;
     Context _context;
     final int PRIVATE_MODE = 0;
-    private static final String PREF_NAME = "LoginSession";
-    private static final String IS_LOGGED_IN = "IsLoggedIn";
+    public static final String PREF_NAME = "LoginSession";
+    public static final String IS_LOGGED_IN = "IsLoggedIn";
     public static final String KEY_FNAME = "FirstName";
     public static final String KEY_LNAME = "LastName";
     public static final String KEY_EMAIL = "Email";
@@ -50,10 +50,12 @@ public class SessionManager {
         return pref.getBoolean(IS_LOGGED_IN, false);
     }
 
-    public HashMap<String, String> getUserDetails(){
-        HashMap<String, String> user = new HashMap<String, String>();
-        user.put(KEY_FNAME, pref.getString(KEY_FNAME, null));
-        user.put(KEY_EMAIL, pref.getString(KEY_LOCATION, null));
+    public User getUserDetails(){
+        User user = new User();
+        user.setFirstName(pref.getString(KEY_FNAME, ""));
+        user.setLastName(pref.getString(KEY_LNAME, ""));
+        user.setEmail(pref.getString(KEY_EMAIL, ""));
+        user.setLocation(pref.getString(KEY_LOCATION, ""));
         return user;
     }
 

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.auth.CognitoCredentialsProvider;
@@ -23,6 +24,7 @@ import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 import com.assignments.koorong.gym_buddy_alpha_.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,36 +42,35 @@ public class MatchUserFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_match_user, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
+        new getItems().execute();
         return view;
     }
 
 
     private class getItems extends AsyncTask<Void, String, Void> {
+        ArrayList<User> ids;
+        String location;
+        public void onPreExecute() {
 
-        public void onPreExecute(){
-            sm = new SessionManager(getContext());
         }
+
         @Override
         protected Void doInBackground(Void... params) {
+            ids = new ArrayList<User>();
             CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                    getContext(),
+                    getActivity().getApplicationContext(),
                     "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
                     Regions.US_EAST_1 // Region
             );
             AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-            //DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
-            //User selectedUser = mapper.load(User.class, email);
-
-            String location = sm.getUserDetails().get("KEY_LOCATION");
-            ArrayList<User> ids = new ArrayList<User>();
-
+            location = sm.getUserDetails().getLocation();
             ScanResult result = null;
 
-            do{
+            do {
                 ScanRequest req = new ScanRequest();
                 req.setTableName("Users");
 
-                if(result != null){
+                if (result != null) {
                     req.setExclusiveStartKey(result.getLastEvaluatedKey());
                 }
 
@@ -77,11 +78,11 @@ public class MatchUserFragment extends Fragment {
 
                 List<Map<String, AttributeValue>> rows = result.getItems();
 
-                for(Map<String, AttributeValue> map : rows){
-                    try{
+                for (Map<String, AttributeValue> map : rows) {
+                    try {
                         User user = new User();
                         AttributeValue v = map.get("Location");
-                        if (!location.isEmpty()){
+                        if (!location.isEmpty()) {
                             if (v.getS().equalsIgnoreCase(location)) {
                                 user.setLocation(v.getS());
                                 v = map.get("FirstName");
@@ -92,7 +93,7 @@ public class MatchUserFragment extends Fragment {
                                 user.setEmail(v.getS());
                                 ids.add(user);
                             }
-                        }else{
+                        } else {
                             user.setLocation(v.getS());
                             v = map.get("FirstName");
                             user.setFirstName(v.getS());
@@ -102,34 +103,32 @@ public class MatchUserFragment extends Fragment {
                             user.setEmail(v.getS());
                             ids.add(user);
                         }
-                    } catch (NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
                     }
                 }
-            } while(result.getLastEvaluatedKey() != null);
+            } while (result.getLastEvaluatedKey() != null);
 
 
             //System.out.println("Result size: " + ids.size());
 
-            displayIds(ids);
             return null;
         }
+
         @Override
         protected void onPostExecute(Void v) {
-
-
+            Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
+            displayIds(ids);
         }
-        }
+    }
 
 
+    private void displayIds(ArrayList<User> users) {
+        MatchUserAdapter adapter = new MatchUserAdapter(getActivity().getApplicationContext(), R.layout.match_user_item, users);
+        ListView userList = (ListView) getActivity().findViewById(R.id.UserMatches);
+        userList.setAdapter(adapter);
 
-   private  void displayIds(ArrayList<User> users)
-   {
-       MatchUserAdapter adapter = new MatchUserAdapter(getActivity().getApplicationContext(), R.layout.match_user_item, users);
-       ListView userList = (ListView) getActivity().findViewById(R.id.UserMatches);
-       userList.setAdapter(adapter);
-
-   }
+    }
     //returns an ArrayList of users
 //    private static ArrayList<User> fetchItems(View view, String location) {
 //

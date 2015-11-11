@@ -1,3 +1,4 @@
+/*
 package com.assignments.koorong.gym_buddy_alpha_;
 
 import android.support.v7.app.AppCompatActivity;
@@ -35,3 +36,4 @@ public class MatchingActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+*/
