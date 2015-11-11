@@ -1,0 +1,51 @@
+package com.assignments.koorong.gym_buddy_alpha_.Fragments;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.assignments.koorong.gym_buddy_alpha_.R;
+import com.assignments.koorong.gym_buddy_alpha_.User;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Peter on 04/11/2015.
+ */
+public class MatchUserAdapter extends ArrayAdapter<User>{
+    private Context context;
+    private final int layoutResourceId;
+    private ArrayList<User> data = null;
+
+    public MatchUserAdapter(Context context, int layoutResourceId, ArrayList<User> data){
+        super(context, layoutResourceId, data);
+        this.context = context;
+        this.layoutResourceId = layoutResourceId;
+        this.data = data;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if(convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(layoutResourceId, parent, false);
+        }
+
+        TextView fName = (TextView)convertView.findViewById(R.id.txtFName);
+        TextView lName = (TextView)convertView.findViewById(R.id.txtLName);
+
+        User user = data.get(position);
+
+        fName.setText(user.getFirstName());
+        lName.setText(user.getLastName());
+
+
+        return convertView;
+    }
+}
