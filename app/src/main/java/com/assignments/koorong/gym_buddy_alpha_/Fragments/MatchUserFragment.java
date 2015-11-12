@@ -1,6 +1,8 @@
 package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,7 +33,7 @@ import java.util.Map;
 
 public class MatchUserFragment extends Fragment {
     SessionManager sm;
-
+    Activity activity;
     public MatchUserFragment() {
         // Required empty public constructor
     }
@@ -42,13 +44,14 @@ public class MatchUserFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_match_user, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
+        activity = getActivity();
         new getItems().execute();
-        //displayIds();
+       // displayIds(view);
         return view;
     }
 
 
-    private class getItems extends AsyncTask<Void, String, Void> {
+    private class getItems extends AsyncTask<Void, Void, Void> {
         ArrayList<User> ids;
         String location;
         public void onPreExecute() {
@@ -79,7 +82,7 @@ public class MatchUserFragment extends Fragment {
 
                 List<Map<String, AttributeValue>> rows = result.getItems();
 
-                /*for (Map<String, AttributeValue> map : rows) {
+                for (Map<String, AttributeValue> map : rows) {
                     try {
                         User user = new User();
                         AttributeValue v = map.get("Location");
@@ -107,7 +110,7 @@ public class MatchUserFragment extends Fragment {
                     } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
                     }
-                }*/
+                }
             } while (result.getLastEvaluatedKey() != null);
 
 
@@ -119,19 +122,13 @@ public class MatchUserFragment extends Fragment {
         @Override
         protected void onPostExecute(Void v) {
             Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
-            //displayIds(ids);
+            displayIds(getView(),ids);
         }
     }
 
 
-    private void displayIds(View view) {
-        ArrayList<User> users = new ArrayList<>();
-        User user = new User();
-        user.setFirstName("Peter");
-        user.setLastName("Liu");
-        user.setEmail("peterliu930@gmail.com");
-        users.add(user);
-        MatchUserAdapter adapter = new MatchUserAdapter(getActivity().getApplicationContext(), R.layout.match_user_item, users);
+    private void displayIds(View view, ArrayList<User> ids) {
+        MatchUserAdapter adapter = new MatchUserAdapter(getActivity().getApplicationContext(), R.layout.match_user_item, ids);
         ListView userList = (ListView)view.findViewById(R.id.UserMatches);
         userList.setAdapter(adapter);
 
@@ -200,6 +197,10 @@ public class MatchUserFragment extends Fragment {
 //
 //        return ids;
 //    }
-
+    private void logout()
+    {
+        SharedPreferences settings = getActivity().getApplicationContext().getSharedPreferences("PreferencesName", Context.MODE_PRIVATE);
+        settings.edit().clear().commit();
+    }
 
 }
