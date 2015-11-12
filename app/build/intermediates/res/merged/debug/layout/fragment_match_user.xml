@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.MatchUserFragment">
 
-
     <ListView
         android:id="@+id/UserMatches"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="8dp">
     </ListView>
 
 </FrameLayout>
-<!-- From: file:/C:/Users/Brandon/Documents/AndroidGit2/GBFinal/app/src/main/res/layout/fragment_match_user.xml -->
+<!-- From: file:/W:/GitHub%20Projects/GBFinal/app/src/main/res/layout/fragment_match_user.xml -->

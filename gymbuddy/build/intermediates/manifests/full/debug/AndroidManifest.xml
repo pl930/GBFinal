@@ -46,11 +46,11 @@
         </activity>
         <activity
             android:name="com.example.brandon.gymbuddy.MatchingActivity"
-            android:label="stuff" >
+            android:label="@string/title_activity_matching" >
         </activity>
         <activity
             android:name="com.example.brandon.gymbuddy.ProfileActivity"
-            android:label="stuff2" >
+            android:label="@string/title_activity_profile" >
         </activity>
     </application>
 
