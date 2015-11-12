@@ -109,7 +109,6 @@ public class LoginActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
 
                 /*BRANDON I BELIEVE IN YOU*/
-                // TODO: Implement successful signup logic here
                 // By default we just finish the Activity and log them in automatically
                 // show(this.findViewById(android.R.id.content));
                 //_emailText.setError("enter a valid email address");
@@ -160,15 +159,6 @@ public class LoginActivity extends AppCompatActivity {
 
         return valid;
     }
-
-    /*public void saveToPrefs(String fName, String lName, String email){
-        pref = getApplicationContext().getSharedPreferences("LoginUser", 0);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("first_name", fName)
-                .putString("list_name", lName)
-                .putString("email", email)
-                .commit();
-    }*/
 
     private class LoginAuth extends AsyncTask<Void, Void, Void> {
         String email = _emailText.getText().toString();

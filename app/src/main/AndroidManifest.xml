@@ -35,14 +35,6 @@
         <activity
             android:name=".MatchActivity"
             android:theme="@style/AppTheme.Dark" />
-        <activity
-            android:name=".MatchingActivity"
-            android:label="@string/title_activity_matching" >
-        </activity>
-        <activity
-            android:name=".ProfileActivity"
-            android:label="@string/title_activity_profile" >
-        </activity>
     </application>
 
 </manifest>

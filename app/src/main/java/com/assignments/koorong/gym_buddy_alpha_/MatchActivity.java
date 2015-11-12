@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.assignments.koorong.gym_buddy_alpha_.Fragments.HelpFragment;
 import com.assignments.koorong.gym_buddy_alpha_.Fragments.MatchUserFragment;
@@ -27,6 +28,8 @@ import com.assignments.koorong.gym_buddy_alpha_.Fragments.ShareFragment;
 import com.assignments.koorong.gym_buddy_alpha_.NavDrawer.NavDrawerAdapter;
 import com.assignments.koorong.gym_buddy_alpha_.NavDrawer.NavDrawerItem;
 import com.assignments.koorong.gym_buddy_alpha_.db.UserDataSource;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -39,6 +42,7 @@ public class MatchActivity extends AppCompatActivity {
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
     FragmentManager fm;
+    SessionManager sm;
 
     //Nav Drawer
     private ArrayList<NavDrawerItem> navItems;
@@ -55,6 +59,7 @@ public class MatchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_match);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        sm = new SessionManager(getApplicationContext());
         fm = getFragmentManager();
         MatchUserFragment MUF = new MatchUserFragment();
         fm.beginTransaction().replace(R.id.content_frame, MUF).commit();
@@ -70,8 +75,16 @@ public class MatchActivity extends AppCompatActivity {
         LayoutInflater inflater = getLayoutInflater();
 
         View navHead = inflater.inflate(R.layout.nav_header, null, false);
-        ds = new UserDataSource(this);
-        String appUserName = ds.getAppUser().getFirstName() + " " + ds.getAppUser().getLastName();
+        String appUserName = sm.getUserDetails().getFirstName() + " " + sm.getUserDetails().getLastName();
+        String appUserEmail = sm.getUserDetails().getEmail();
+
+        TextView name = (TextView)navHead.findViewById(R.id.name);
+        name.setText(appUserName);
+
+        TextView email = (TextView)navHead.findViewById(R.id.email);
+        email.setText(appUserEmail);
+
+
         drawerList.addHeaderView(navHead);
 
         navMenuHeadings = getResources().getStringArray(R.array.nav_drawer_items);
