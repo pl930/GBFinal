@@ -42,13 +42,13 @@ public class MatchUserFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_match_user, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
-        /*new getItems().execute();*/
-        displayIds(view);
+        new getItems().execute();
+        //displayIds();
         return view;
     }
 
 
-    /*private class getItems extends AsyncTask<Void, String, Void> {
+    private class getItems extends AsyncTask<Void, String, Void> {
         ArrayList<User> ids;
         String location;
         public void onPreExecute() {
@@ -79,7 +79,7 @@ public class MatchUserFragment extends Fragment {
 
                 List<Map<String, AttributeValue>> rows = result.getItems();
 
-                for (Map<String, AttributeValue> map : rows) {
+                /*for (Map<String, AttributeValue> map : rows) {
                     try {
                         User user = new User();
                         AttributeValue v = map.get("Location");
@@ -107,7 +107,7 @@ public class MatchUserFragment extends Fragment {
                     } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
                     }
-                }
+                }*/
             } while (result.getLastEvaluatedKey() != null);
 
 
@@ -119,9 +119,9 @@ public class MatchUserFragment extends Fragment {
         @Override
         protected void onPostExecute(Void v) {
             Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
-            displayIds(ids);
+            //displayIds(ids);
         }
-    }*/
+    }
 
 
     private void displayIds(View view) {
