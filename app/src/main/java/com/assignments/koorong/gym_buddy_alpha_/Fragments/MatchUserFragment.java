@@ -128,7 +128,7 @@ public class MatchUserFragment extends Fragment {
 
 
     private void displayIds(View view, ArrayList<User> ids) {
-        MatchUserAdapter adapter = new MatchUserAdapter(getActivity().getApplicationContext(), R.layout.match_user_item, ids);
+        MatchUserAdapter adapter = new MatchUserAdapter(view.getContext(), R.layout.match_user_item, ids);
         ListView userList = (ListView)view.findViewById(R.id.UserMatches);
         userList.setAdapter(adapter);
 
