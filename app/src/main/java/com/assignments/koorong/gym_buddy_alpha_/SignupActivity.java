@@ -1,6 +1,8 @@
 package com.assignments.koorong.gym_buddy_alpha_;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -22,11 +24,20 @@ import butterknife.InjectView;
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
-    @InjectView(R.id.input_name) EditText _nameText;
-    @InjectView(R.id.input_email) EditText _emailText;
-    @InjectView(R.id.input_password) EditText _passwordText;
-    @InjectView(R.id.btn_signup) Button _signupButton;
-    @InjectView(R.id.link_login) TextView _loginLink;
+    @InjectView(R.id.input_name)
+    EditText _nameText;
+    @InjectView(R.id.input_email)
+    EditText _emailText;
+    @InjectView(R.id.input_password)
+    EditText _passwordText;
+    @InjectView(R.id.btn_signup)
+    Button _signupButton;
+    @InjectView(R.id.link_login)
+    TextView _loginLink;
+    @InjectView(R.id.input_location)
+    EditText _location;
+
+    ProgressDialog progressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,62 +74,26 @@ public class SignupActivity extends AppCompatActivity {
 
         _signupButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
+        progressDialog = new ProgressDialog(SignupActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
+        new SignUpAuth().execute();
 
-        String name = _nameText.getText().toString();
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
-
-        try {
-            CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                    getApplicationContext(),
-                    "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
-                    Regions.US_EAST_1 // Region
-            );
-            AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-
-            User user = new User();
-
-            user.setEmail(email);
-            user.setFirstName(name);
-            user.setPassword(password);
-            DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
-            mapper.save(user);
-        } catch(Exception ex){
-                progressDialog.dismiss();
-                onSignupFailed();
-            }
-
-        /*BRANDON I BELIEVE IN YOU, YOU ARE THE ONE TRUE SAVIOR*/
-        // TODO: Implement signup logic here.
-
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
-                        progressDialog.dismiss();
-                        onSignupSuccess();
-                        // onSignupFailed();
-
-                    }
-                }, 3000);
     }
 
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
         setResult(RESULT_OK, null);
+        Intent i = new Intent(getApplicationContext(), SetUpActivity.class);
+        startActivity(i);
         finish();
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getBaseContext(), "Sign Up failed", Toast.LENGTH_LONG).show();
         _signupButton.setEnabled(true);
     }
 
@@ -128,6 +103,7 @@ public class SignupActivity extends AppCompatActivity {
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
+        String location = _location.getText().toString();
 
         if (name.isEmpty() || name.length() < 3) {
             _nameText.setError("at least 3 characters");
@@ -150,6 +126,54 @@ public class SignupActivity extends AppCompatActivity {
             _passwordText.setError(null);
         }
 
+        if (location.isEmpty()) {
+            _location.setError("enter valid location");
+            valid = false;
+        } else {
+            _location.setError(null);
+        }
+
         return valid;
+    }
+
+    private class SignUpAuth extends AsyncTask<Void, Void, Void> {
+        String name = _nameText.getText().toString();
+        String email = _emailText.getText().toString();
+        String password = _passwordText.getText().toString();
+        String location = _location.getText().toString();
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            if (validate()) {
+                try {
+                    CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+                            getApplicationContext(),
+                            "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
+                            Regions.US_EAST_1 // Region
+                    );
+                    AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+
+                    User user = new User();
+                    user.setEmail(email);
+                    user.setFirstName(name);
+                    user.setPassword(password);
+                    user.setLocation(location);
+                    DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+                    mapper.save(user);
+
+                } catch (Exception ex) {
+                    onSignupFailed();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            progressDialog.dismiss();
+            onSignupSuccess();
+            super.onPostExecute(aVoid);
+        }
     }
 }

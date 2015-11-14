@@ -3,4 +3,4 @@
     <item android:state_pressed="true" android:drawable="@color/selectedBg"></item>
     <item android:state_activated="true" android:drawable="@color/selectedBg"></item>
     <item android:drawable="@android:color/transparent"></item>
-</selector><!-- From: file:/W:/GitHub%20Projects/GBFinal/app/src/main/res/drawable/drawer_list_selector.xml -->
+</selector><!-- From: file:/C:/Users/Peter%20Liu/AndroidStudioProjects/GBFinal2/app/src/main/res/drawable/drawer_list_selector.xml -->

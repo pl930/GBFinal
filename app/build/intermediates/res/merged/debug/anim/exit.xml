@@ -5,4 +5,4 @@
         android:toYDelta="100%"
         android:interpolator="@android:anim/decelerate_interpolator"
         android:duration="@android:integer/config_mediumAnimTime" />
-</set><!-- From: file:/W:/GitHub%20Projects/GBFinal/app/src/main/res/anim/exit.xml -->
+</set><!-- From: file:/C:/Users/Peter%20Liu/AndroidStudioProjects/GBFinal2/app/src/main/res/anim/exit.xml -->
