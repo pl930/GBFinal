@@ -12,10 +12,10 @@ import com.assignments.koorong.gym_buddy_alpha_.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ExpPref extends Fragment {
+public class FrequencyPrefFragment extends Fragment {
 
 
-    public ExpPref() {
+    public FrequencyPrefFragment() {
         // Required empty public constructor
     }
 
@@ -24,8 +24,8 @@ public class ExpPref extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_exp_pref, container, false );
-        return view;    }
+        return inflater.inflate(R.layout.fragment_frequency_pref, container, false);
+    }
 
 
 }
