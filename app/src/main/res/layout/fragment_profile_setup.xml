@@ -9,7 +9,9 @@
         android:id="@+id/txtWelcome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Welcome"
+        android:text="Before we get started, we need to setup your profile"
         android:gravity="center_vertical|center_horizontal" />
+
+
 
 </FrameLayout>

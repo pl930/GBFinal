@@ -30,12 +30,13 @@ public class SignupActivity extends AppCompatActivity {
     EditText _emailText;
     @InjectView(R.id.input_password)
     EditText _passwordText;
+    @InjectView(R.id.input_location)
+    EditText _location;
     @InjectView(R.id.btn_signup)
     Button _signupButton;
     @InjectView(R.id.link_login)
     TextView _loginLink;
-    @InjectView(R.id.input_location)
-    EditText _location;
+
 
     ProgressDialog progressDialog;
 

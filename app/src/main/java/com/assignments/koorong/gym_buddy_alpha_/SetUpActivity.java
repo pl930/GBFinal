@@ -1,9 +1,12 @@
 package com.assignments.koorong.gym_buddy_alpha_;
 
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileSetup.WelcomeFragment;
 
 public class SetUpActivity extends AppCompatActivity {
 
@@ -11,6 +14,11 @@ public class SetUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_up);
+        FragmentManager fm = getFragmentManager();
+        WelcomeFragment wFrag = new WelcomeFragment();
+        fm.beginTransaction()
+                .replace(R.id.setupContainer, wFrag)
+                .commit();
     }
 
     @Override
