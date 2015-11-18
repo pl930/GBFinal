@@ -8,10 +8,35 @@
     <TextView
         android:id="@+id/txtWelcome"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Before we get started, we need to setup your profile"
+        android:layout_height="wrap_content"
+        android:text="Before we start, lets setup your profile"
         android:gravity="center_vertical|center_horizontal" />
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal|bottom">
+        <RadioButton
+            android:id="@+id/radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:layout_weight="1"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/edtAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your age"
+        android:layout_gravity="center" />
 
 
 </FrameLayout>
