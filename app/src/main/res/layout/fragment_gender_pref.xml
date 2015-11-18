@@ -1,10 +1,41 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileSetup.GenderPrefFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <TextView
+        android:text="Gender Preference?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RadioGroup
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <RadioButton
+            android:id="@+id/radio_prefMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"/>
+        <RadioButton
+            android:id="@+id/radio_prefFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"/>
+        <RadioButton
+            android:id="@+id/radio_noGenPref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Preference"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnGenNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proceed"/>
+
+</LinearLayout>

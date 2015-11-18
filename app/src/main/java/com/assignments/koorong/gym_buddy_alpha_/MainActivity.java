@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity { //Mike git update
         setContentView(R.layout.activity_main);
         sm = new SessionManager(getApplicationContext());
 
-        if (!sm.isLoggedIn()) {
+        /*if (!sm.isLoggedIn()) {
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
             finish();
@@ -24,7 +24,11 @@ public class MainActivity extends AppCompatActivity { //Mike git update
             Intent i = new Intent(getApplicationContext(), MatchActivity.class);
             startActivity(i);
             finish();
-        }
+        }*/
+
+        Intent i = new Intent(getApplication(), SetUpActivity.class);
+        startActivity(i);
+        finish();
     }
 
     @Override
