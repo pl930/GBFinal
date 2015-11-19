@@ -3,6 +3,7 @@ package com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileSetup;
 
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,6 +35,7 @@ public class WelcomeFragment extends Fragment {
         String name = sm.getUserDetails().getName();
         TextView welcome = (TextView)view.findViewById(R.id.txtWelcome);
         welcome.setText("Welcome " + name);
+        this.getActivity().setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Button setup = (Button)view.findViewById(R.id.btnSetup);
         setup.setOnClickListener(new View.OnClickListener() {
             @Override
