@@ -3,6 +3,7 @@ package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -39,10 +40,12 @@ public class MatchUserFragment extends Fragment {
     public MatchUserFragment() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //prevent app view from switching to horizontal
+        this.getActivity().setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_match_user, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
