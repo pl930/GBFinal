@@ -174,10 +174,14 @@ public class SignupActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            progressDialog.dismiss();
             sm.createLoginSession(name, email, location);
-            onSignupSuccess();
+            runOnUiThread();
             super.onPostExecute(aVoid);
         }
+    }
+
+    private void runOnUiThread() {
+        progressDialog.dismiss();
+        onSignupSuccess();
     }
 }
