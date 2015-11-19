@@ -26,6 +26,8 @@ import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 import com.assignments.koorong.gym_buddy_alpha_.User;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +55,7 @@ public class MatchUserFragment extends Fragment {
 
     private class getItems extends AsyncTask<Void, Void, Void> {
         ArrayList<User> ids;
+        User selectedUser;
         String location;
         public void onPreExecute() {
 
@@ -68,6 +71,8 @@ public class MatchUserFragment extends Fragment {
             );
             AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
             location = sm.getUserDetails().getLocation();
+            DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+            selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
             ScanResult result = null;
 
             do {
@@ -93,6 +98,16 @@ public class MatchUserFragment extends Fragment {
                                 user.setName(v.getS());
                                 v = map.get("Email");
                                 user.setEmail(v.getS());
+                                v = map.get("Age");
+                                user.setAge(Integer.parseInt(v.getN()));
+                                v = map.get("AgePref");
+                                user.setAgePref(Integer.parseInt(v.getN()));
+                                v = map.get("experience");
+                                user.setexperience(Integer.parseInt(v.getN()));
+                                v = map.get("frequency");
+                                user.setfrequency(Integer.parseInt(v.getN()));
+                                v = map.get("genderPref");
+                                user.setgenderPref(Integer.parseInt(v.getN()));
                                 ids.add(user);
                             }
                         } else {
@@ -101,6 +116,16 @@ public class MatchUserFragment extends Fragment {
                             user.setName(v.getS());
                             v = map.get("Email");
                             user.setEmail(v.getS());
+                            v = map.get("Age");
+                            user.setAge(Integer.parseInt(v.getN()));
+                            v = map.get("AgePref");
+                            user.setAgePref(Integer.parseInt(v.getN()));
+                            v = map.get("experience");
+                            user.setexperience(Integer.parseInt(v.getN()));
+                            v = map.get("frequency");
+                            user.setfrequency(Integer.parseInt(v.getN()));
+                            v = map.get("genderPref");
+                            user.setgenderPref(Integer.parseInt(v.getN()));
                             ids.add(user);
                         }
                     } catch (NumberFormatException e) {
@@ -118,10 +143,55 @@ public class MatchUserFragment extends Fragment {
         @Override
         protected void onPostExecute(Void v) {
             Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
-            displayIds(getView(),ids);
+            compare(ids, selectedUser);
+            //displayIds(getView(),ids);
         }
     }
+    private void compare(ArrayList<User> ids, User selectedUser)
+    {
+        int match = 0;
 
+        for (int i = 0; i < ids.size(); i++) {
+            if (selectedUser.getEmail().equalsIgnoreCase(ids.get(i).getEmail()))
+            {
+                ids.remove(i);
+            }
+            if(selectedUser.getgenderPref() == ids.get(i).getgenderPref())
+            {
+                match = match+15;
+            }
+
+            if(selectedUser.getfrequency() == ids.get(i).getfrequency())
+            {
+                match = match+2;
+            }
+
+            if(selectedUser.getexperience() == ids.get(i).getexperience())
+            {
+                match = match+5;
+            }
+
+            if(selectedUser.getAgePref() == ids.get(i).getAgePref())
+            {
+                match = match+5;
+            }
+            ids.get(i).setexerciseType(match);
+            match = 0;
+        }
+
+
+
+        //Collections.sort(ids, new CustomComparator());
+        Collections.sort(ids);
+        displayIds(getView(),ids);
+    }
+
+//    public class CustomComparator implements Comparator<User> {
+//        @Override
+//        public int compare(User o1, User o2) {
+//            return o1.getexerciseType().compareTo(o2.getexerciseType());
+//        }
+//    }
 
     private void displayIds(View view, ArrayList<User> ids) {
         MatchUserAdapter adapter = new MatchUserAdapter(view.getContext(), R.layout.match_user_item, ids);

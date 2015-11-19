@@ -39,7 +39,7 @@ public class SignupActivity extends AppCompatActivity {
     TextView _loginLink;
 
 
-    ProgressDialog progressDialog;
+//    ProgressDialog progressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,11 +77,12 @@ public class SignupActivity extends AppCompatActivity {
 
         _signupButton.setEnabled(false);
 
-        progressDialog = new ProgressDialog(SignupActivity.this,
-                R.style.AppTheme_Dark_Dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Creating Account...");
-        progressDialog.show();
+//        progressDialog = new ProgressDialog(SignupActivity.this,
+//                R.style.AppTheme_Dark_Dialog);
+//        progressDialog.setIndeterminate(true);
+//        progressDialog.setMessage("Creating Account...");
+//        progressDialog.show();
+
         new SignUpAuth().execute();
 
     }
@@ -144,11 +145,11 @@ public class SignupActivity extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
         String location = _location.getText().toString();
-
+        //validate();
         @Override
         protected Void doInBackground(Void... params) {
 
-            if (validate()) {
+
                 try {
                     CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
                             getApplicationContext(),
@@ -168,7 +169,7 @@ public class SignupActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                     onSignupFailed();
                 }
-            }
+
             return null;
         }
 
@@ -181,7 +182,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void runOnUiThread() {
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
         onSignupSuccess();
     }
 }

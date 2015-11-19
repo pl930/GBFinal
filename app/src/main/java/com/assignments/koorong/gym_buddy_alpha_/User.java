@@ -10,7 +10,7 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
  * Created by Brandon on 10/14/2015.
  */
 @DynamoDBTable(tableName = "Users")
-public class User {
+public class User implements Comparable {
     private String Name;
     private String location;
     private String email;
@@ -145,5 +145,15 @@ public class User {
     public void setplaceHolder(String placeHolder) {
         this.placeHolder = placeHolder;
     }
+
+    @Override
+    public int compareTo(Object comparestu) {
+        int compareage=((User)comparestu).getexerciseType();
+        /* For Ascending order*/
+        // return this.exerciseType-compareage;
+        return compareage-this.exerciseType;
+    }
+
+
 
 }
