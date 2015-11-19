@@ -89,20 +89,16 @@ public class MatchUserFragment extends Fragment {
                         if (!location.isEmpty()) {
                             if (v.getS().equalsIgnoreCase(location)) {
                                 user.setLocation(v.getS());
-                                v = map.get("FirstName");
-                                user.setFirstName(v.getS());
-                                v = map.get("LastName");
-                                user.setLastName(v.getS());
+                                v = map.get("Name");
+                                user.setName(v.getS());
                                 v = map.get("Email");
                                 user.setEmail(v.getS());
                                 ids.add(user);
                             }
                         } else {
                             user.setLocation(v.getS());
-                            v = map.get("FirstName");
-                            user.setFirstName(v.getS());
-                            v = map.get("LastName");
-                            user.setLastName(v.getS());
+                            v = map.get("Name");
+                            user.setName(v.getS());
                             v = map.get("Email");
                             user.setEmail(v.getS());
                             ids.add(user);

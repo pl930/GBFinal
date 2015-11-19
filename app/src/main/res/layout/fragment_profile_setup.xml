@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/maleorfemale">
 
         <RadioButton
             android:id="@+id/radio_male"
@@ -31,7 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Female" />
+            android:text="Female"
+            />
     </RadioGroup>
 
     <EditText

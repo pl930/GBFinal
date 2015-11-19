@@ -31,7 +31,7 @@ public class WelcomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_welcome, container, false);
         SessionManager sm = new SessionManager(getActivity().getApplicationContext());
-        String name = sm.getUserDetails().getFirstName();
+        String name = sm.getUserDetails().getName();
         TextView welcome = (TextView)view.findViewById(R.id.txtWelcome);
         welcome.setText("Welcome " + name);
         Button setup = (Button)view.findViewById(R.id.btnSetup);

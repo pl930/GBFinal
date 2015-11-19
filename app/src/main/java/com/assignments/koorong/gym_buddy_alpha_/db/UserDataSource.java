@@ -53,8 +53,7 @@ public class UserDataSource {
         Cursor cursor = db.rawQuery(select, null);
         if(cursor.moveToFirst()){
             do{
-                appUser.setFirstName(cursor.getString(1));
-                appUser.setLastName(cursor.getString(2));
+                appUser.setName(cursor.getString(1));
             }while (cursor.moveToNext());
         }
         return appUser;
@@ -68,8 +67,7 @@ public class UserDataSource {
         if(cursor.moveToFirst()){
             do{
                 User match = new User();
-                match.setFirstName(cursor.getString(1));
-                match.setLastName(cursor.getString(2));
+                match.setName(cursor.getString(1));
                 matchList.add(match);
             }while(cursor.moveToNext());
         }

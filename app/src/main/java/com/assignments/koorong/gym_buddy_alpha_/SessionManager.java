@@ -17,8 +17,7 @@ public class SessionManager {
     final int PRIVATE_MODE = 0;
     public static final String PREF_NAME = "LoginSession";
     public static final String IS_LOGGED_IN = "IsLoggedIn";
-    public static final String KEY_FNAME = "FirstName";
-    public static final String KEY_LNAME = "LastName";
+    public static final String KEY_NAME = "FirstName";
     public static final String KEY_EMAIL = "Email";
     public static final String KEY_LOCATION = "location";
 
@@ -28,10 +27,9 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    public void createLoginSession(String fname, String lname, String email, String location){
+    public void createLoginSession(String name,String email, String location){
         editor.putBoolean(IS_LOGGED_IN, true)
-                .putString(KEY_FNAME, fname)
-                .putString(KEY_LNAME, lname)
+                .putString(KEY_NAME, name)
                 .putString(KEY_EMAIL, email)
                 .putString(KEY_LOCATION, location)
                 .commit();
@@ -52,8 +50,7 @@ public class SessionManager {
 
     public User getUserDetails(){
         User user = new User();
-        user.setFirstName(pref.getString(KEY_FNAME, ""));
-        user.setLastName(pref.getString(KEY_LNAME, ""));
+        user.setName(pref.getString(KEY_NAME, ""));
         user.setEmail(pref.getString(KEY_EMAIL, ""));
         user.setLocation(pref.getString(KEY_LOCATION, ""));
         return user;

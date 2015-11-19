@@ -11,22 +11,26 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
  */
 @DynamoDBTable(tableName = "Users")
 public class User {
-    private String LastName;
-    private String FirstName;
+    private String Name;
     private String location;
     private String email;
-    private String Age;
-    private String Gender;
-    private Boolean weightTrain;
-    private Boolean cardio;
-    private Boolean crossfit;
+    private int Age;
+    private Boolean Gender;
     private String Password;
+    int AgePref;
+    int genderPref;
+    int experience;
+    int frequency;
+    int exerciseType;
+    String goal;
+    String picture;
+    String placeHolder;
 
     @Override
     public String toString() {
         return
-                "LastName='" + LastName + '\'' +
-                        ", FirstName='" + FirstName + '\'' +
+                "Name='" + Name + '\'' +
+                        ", agePref='" + AgePref + '\'' +
                         ", location='" + location + '\'' +
                         ", email='" + email + '\''
                 ;
@@ -50,23 +54,16 @@ public class User {
         this.Password = Password;
     }
 
-    @DynamoDBAttribute(attributeName = "FirstName")
-    public String getFirstName() {
-        return FirstName;
+    @DynamoDBAttribute(attributeName = "Name")
+    public String getName() {
+        return Name;
     }
 
-    public void setFirstName(String FirstName) {
-        this.FirstName = FirstName;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
-    @DynamoDBAttribute(attributeName = "LastName")
-    public String getLastName() {
-        return LastName;
-    }
 
-    public void setLastName(String LastName) {
-        this.LastName = LastName;
-    }
 
     @DynamoDBAttribute(attributeName = "Location")
     public String getLocation() {
@@ -78,48 +75,75 @@ public class User {
     }
 
     @DynamoDBAttribute(attributeName = "Age")
-    public String getAge() {
+    public int getAge() {
         return Age;
     }
 
-    public void setAge(String Age) {
+    public void setAge(int Age) {
         this.Age = Age;
     }
 
     @DynamoDBAttribute(attributeName = "Gender")
-    public String getGender() {
-        return Gender;
-    }
+    public Boolean getGender() {return Gender;}
 
-    public void setGender(String Gender) {
+    public void setGender(Boolean Gender) {
         this.Gender = Gender;
     }
 
-    @DynamoDBAttribute(attributeName = "weightTrain")
-    public Boolean getWeightTrain() {
-        return weightTrain;
+    @DynamoDBAttribute(attributeName = "AgePref")
+    public int getAgePref() {return AgePref;}
+
+    public void setAgePref(int AgePref) {
+        this.AgePref = AgePref;
     }
 
-    public void setGender(Boolean weightTrain) {
-        this.weightTrain = weightTrain;
+    @DynamoDBAttribute(attributeName = "genderPref")
+    public int getgenderPref() {return genderPref;}
+
+    public void setgenderPref(int genderPref) {
+        this.genderPref = genderPref;
     }
 
-    @DynamoDBAttribute(attributeName = "cardio")
-    public Boolean getCardio() {
-        return cardio;
+    @DynamoDBAttribute(attributeName = "experience")
+    public int getexperience() {return experience;}
+
+    public void setexperience(int experience) {
+        this.experience = experience;
     }
 
-    public void setCardio(Boolean cardio) {
-        this.cardio = cardio;
+    @DynamoDBAttribute(attributeName = "frequency")
+    public int getfrequency() {return frequency;}
+
+    public void setfrequency(int frequency) {
+        this.frequency = frequency;
     }
 
-    @DynamoDBAttribute(attributeName = "crossfit")
-    public Boolean getCrossfit() {
-        return crossfit;
+    @DynamoDBAttribute(attributeName = "exerciseType")
+    public int getexerciseType() {return exerciseType;}
+
+    public void setexerciseType(int exerciseType) {
+        this.exerciseType = exerciseType;
     }
 
-    public void setCrossfit(Boolean crossfit) {
-        this.crossfit = crossfit;
+    @DynamoDBAttribute(attributeName = "goal")
+    public String getgoal() {return goal;}
+
+    public void setgoal(String goal) {
+        this.goal = goal;
     }
+
+    @DynamoDBAttribute(attributeName = "picture")
+    public String getpicture() {return picture;}
+
+    public void setpicture(String picture) {
+        this.picture = picture;
+    }
+
+    @DynamoDBAttribute(attributeName = "placeHolder")
+    public String getplaceHolder() {return placeHolder;}
+
+    public void setplaceHolder(String placeHolder) {
+        this.placeHolder = placeHolder;
+    }
+
 }
-

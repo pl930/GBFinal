@@ -157,7 +157,7 @@ public class SignupActivity extends AppCompatActivity {
 
                     User user = new User();
                     user.setEmail(email);
-                    user.setFirstName(name);
+                    user.setName(name);
                     user.setPassword(password);
                     user.setLocation(location);
                     DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);

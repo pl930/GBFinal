@@ -75,7 +75,7 @@ public class MatchActivity extends AppCompatActivity {
         LayoutInflater inflater = getLayoutInflater();
 
         View navHead = inflater.inflate(R.layout.nav_header, null, false);
-        String appUserName = sm.getUserDetails().getFirstName() + " " + sm.getUserDetails().getLastName();
+        String appUserName = sm.getUserDetails().getName();
         String appUserEmail = sm.getUserDetails().getEmail();
 
         TextView name = (TextView)navHead.findViewById(R.id.name);

@@ -41,7 +41,7 @@ public class MatchUserAdapter extends ArrayAdapter<User>{
         TextView email = (TextView)convertView.findViewById(R.id.txtEmail);
 
         User user = data.get(position);
-        String uName = user.getFirstName() + " " + user.getLastName();
+        String uName = user.getName();
 
         name.setText(uName);
         email.setText(user.getEmail());
