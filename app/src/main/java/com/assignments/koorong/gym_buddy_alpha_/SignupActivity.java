@@ -23,6 +23,7 @@ import butterknife.InjectView;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
+    SessionManager sm;
 
     @InjectView(R.id.input_name)
     EditText _nameText;
@@ -45,6 +46,7 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         ButterKnife.inject(this);
+        sm = new SessionManager(getApplicationContext());
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
@@ -173,6 +175,7 @@ public class SignupActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             progressDialog.dismiss();
+            sm.createLoginSession(name, email, location);
             onSignupSuccess();
             super.onPostExecute(aVoid);
         }

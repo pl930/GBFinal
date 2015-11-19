@@ -55,8 +55,7 @@ public class ProfileSetupFragment extends Fragment {
     public void setValues(View view)
     {
         EditText age = (EditText)view.findViewById(R.id.edtAge);
-        String age2 = age.toString();
-        int age3 = Integer.parseInt(age2);
+        int age2 = Integer.parseInt(age.getText().toString());
         boolean sex;
         RadioGroup rg = (RadioGroup)view.findViewById(R.id.maleorfemale);
         String radiovalue = ((RadioButton)view.findViewById(rg.getCheckedRadioButtonId())).getText().toString();
@@ -67,7 +66,7 @@ public class ProfileSetupFragment extends Fragment {
             sex = true;
         }
 
-        show(view, age3, sex);
+        show(view, age2, sex);
     }
 
     public void show(View view, int age, boolean sex)
