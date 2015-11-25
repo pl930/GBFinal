@@ -111,6 +111,14 @@ public class MatchUserFragment extends Fragment {
                                 user.setfrequency(Integer.parseInt(v.getN()));
                                 v = map.get("genderPref");
                                 user.setgenderPref(Integer.parseInt(v.getN()));
+                                v = map.get("Gender");
+                                boolean mybool2 = false;
+                                int mybool = Integer.parseInt(v.getN());
+                                if(mybool> 0 )
+                                {
+                                    mybool2 = true;
+                                }
+                                user.setGender(mybool2);
                                 ids.add(user);
                             }
                         } else {
@@ -129,6 +137,8 @@ public class MatchUserFragment extends Fragment {
                             user.setfrequency(Integer.parseInt(v.getN()));
                             v = map.get("genderPref");
                             user.setgenderPref(Integer.parseInt(v.getN()));
+                            v = map.get("Gender");
+                            user.setGender(v.getBOOL());
                             ids.add(user);
                         }
                     } catch (NumberFormatException e) {
@@ -158,11 +168,29 @@ public class MatchUserFragment extends Fragment {
             if (selectedUser.getEmail().equalsIgnoreCase(ids.get(i).getEmail()))
             {
                 ids.remove(i);
+                continue;
             }
-            if(selectedUser.getgenderPref() == ids.get(i).getgenderPref())
+           /* if(selectedUser.getgenderPref() == ids.get(i).getgenderPref())
             {
                 match = match+15;
+            }*/
+            if(selectedUser.getgenderPref() == 2)  //you have no preference
+            {
+
+            }else if(selectedUser.getgenderPref() == 1){ //looking for female
+                if(ids.get(i).getGender() == false){  //not female
+                    ids.remove(i);
+                    continue;
+                }
+
+
+            }else{//looking for male
+                if(ids.get(i).getGender()){  //not male
+                    ids.remove(i);
+                    continue;
+                }
             }
+
 
             if(selectedUser.getfrequency() == ids.get(i).getfrequency())
             {

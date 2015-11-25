@@ -19,6 +19,7 @@
             android:id="@+id/radio_beginner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Beginner"/>
         <RadioButton
             android:id="@+id/radio_intermediate"

@@ -41,6 +41,7 @@ public class ProfileSetupFragment extends Fragment {
         setup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isValid();
                 setValues(view);
                 AgeprefFragment apFrag = new AgeprefFragment();
                 FragmentManager fm = getFragmentManager();
@@ -50,6 +51,11 @@ public class ProfileSetupFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    public void isValid()
+    {
+
     }
 
     public void setValues(View view)
