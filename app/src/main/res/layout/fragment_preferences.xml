@@ -1,14 +1,169 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.PreferencesFragment">
+             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.SettingsFragment"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:text="Preferences" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editText"
+                android:layout_weight="0.92"
+                android:hint="Location"
+                />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+
+            <TextView
+            android:text="Gender Preference?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RadioGroup
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/radioGenderPrefSet"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_prefMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Male"/>
+            <RadioButton
+                android:id="@+id/radio_prefFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"/>
+            <RadioButton
+                android:id="@+id/radio_noGenPref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Preference"/>
+        </RadioGroup>
+
+        <TextView
+            android:text="How often do you workout?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:id="@+id/radioFreqSet"
+            >
+            <RadioButton
+                android:id="@+id/radio_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="1 to 3"/>
+            <RadioButton
+                android:id="@+id/radio_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 to 5"/>
+            <RadioButton
+                android:id="@+id/radio_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5+"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:text="Experience?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RadioGroup
+            android:id="@+id/expPrefRSet"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <RadioButton
+                android:id="@+id/radio_beginner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Beginner"/>
+            <RadioButton
+                android:id="@+id/radio_intermediate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intermediate"/>
+            <RadioButton
+                android:id="@+id/radio_advanced"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Advanced"/>
+        </RadioGroup>
+
+        <TextView
+            android:text="Age preference?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/agePrefGrSet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/radio_18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="18 - 24"/>
+
+            <RadioButton
+                android:id="@+id/radio_22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25 - 30"/>
+
+            <RadioButton
+                android:id="@+id/radio_25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="31 - 38"/>
+
+            <RadioButton
+                android:id="@+id/radio_nopref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Preference"/>
+        </RadioGroup>
+
+
+            </LinearLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/btnExpNext2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update"/>
+
+
+    </LinearLayout>
 
 </FrameLayout>
