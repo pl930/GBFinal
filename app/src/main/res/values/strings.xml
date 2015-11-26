@@ -36,6 +36,15 @@
         <item>@drawable/social24</item>
     </array>
 
+    <string-array name="city_spinner">
+        <item>Burlington</item>
+        <item>Oakville</item>
+        <item>Missisauga</item>
+        <item>Toronto</item>
+        <item>Milton</item>
+    </string-array>
+    - See more at: http://www.ahotbrew.com/android-dropdown-spinner-example/#sthash.kzi5L2IN.dpuf
+
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

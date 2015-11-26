@@ -8,8 +8,10 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,8 +33,8 @@ public class SignupActivity extends AppCompatActivity {
     EditText _emailText;
     @InjectView(R.id.input_password)
     EditText _passwordText;
-    @InjectView(R.id.input_location)
-    EditText _location;
+   // @InjectView(R.id.input_location)
+    //EditText _location;
     @InjectView(R.id.btn_signup)
     Button _signupButton;
     @InjectView(R.id.link_login)
@@ -51,6 +53,19 @@ public class SignupActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+        Spinner staticSpinner = (Spinner) findViewById(R.id.location_spinner);
+
+        // Create an ArrayAdapter using the string array and a default spinner
+        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter
+                .createFromResource(this, R.array.city_spinner,
+                        android.R.layout.simple_spinner_item);
+
+        // Specify the layout to use when the list of choices appears
+        staticAdapter
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        staticSpinner.setAdapter(staticAdapter);
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +122,9 @@ public class SignupActivity extends AppCompatActivity {
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-        String location = _location.getText().toString();
+        Spinner spinner = (Spinner)findViewById(R.id.location_spinner);
+        String text = spinner.getSelectedItem().toString();
+        String location = text;
 
         if (name.isEmpty() || name.length() < 3) {
             _nameText.setError("at least 3 characters");
@@ -130,12 +147,12 @@ public class SignupActivity extends AppCompatActivity {
             _passwordText.setError(null);
         }
 
-        if (location.isEmpty()) {
-            _location.setError("enter valid location");
-            valid = false;
-        } else {
-            _location.setError(null);
-        }
+//        if (location.isEmpty()) {
+//            _location.setError("enter valid location");
+//            valid = false;
+//        } else {
+//            _location.setError(null);
+//        }
 
         return valid;
     }
@@ -144,7 +161,9 @@ public class SignupActivity extends AppCompatActivity {
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-        String location = _location.getText().toString();
+        Spinner spinner = (Spinner)findViewById(R.id.location_spinner);
+        String text = spinner.getSelectedItem().toString();
+        String location = text;
         //validate();
         @Override
         protected Void doInBackground(Void... params) {
