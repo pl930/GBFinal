@@ -202,7 +202,7 @@ public class MatchUserFragment extends Fragment {
                 match = match+5;
             }
 
-            if(selectedUser.getAgePref() == ids.get(i).getAgePref())
+            if(selectedUser.getAgePref() == ids.get(i).getAgePref())  //needs to be fixed
             {
                 match = match+5;
             }
