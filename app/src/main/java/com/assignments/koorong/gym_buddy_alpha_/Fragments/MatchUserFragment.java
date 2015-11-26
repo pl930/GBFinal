@@ -1,6 +1,7 @@
 package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
@@ -38,6 +40,7 @@ import java.util.Map;
 public class MatchUserFragment extends Fragment {
     SessionManager sm;
     Activity activity;
+    ProgressDialog loading;
     public MatchUserFragment() {
         // Required empty public constructor
     }
@@ -51,6 +54,10 @@ public class MatchUserFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_match_user, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
         activity = getActivity();
+        loading = new ProgressDialog(view.getContext(), R.style.AppTheme_Dark_Dialog);
+        loading.setCancelable(false);
+        loading.setMessage("Getting Matches");
+        loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         new getItems().execute();
        // displayIds(view);
         return view;
@@ -62,12 +69,12 @@ public class MatchUserFragment extends Fragment {
         User selectedUser;
         String location;
         public void onPreExecute() {
-
+            loading.show();
         }
 
         @Override
         protected Void doInBackground(Void... params) {
-            ids = new ArrayList<User>();
+            ids = new ArrayList<>();
             CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
                     getActivity().getApplicationContext(),
                     "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
@@ -156,6 +163,7 @@ public class MatchUserFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Void v) {
+            loading.dismiss();
             Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
             compare(ids, selectedUser);
             //displayIds(getView(),ids);

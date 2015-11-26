@@ -65,14 +65,19 @@ public class MatchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_match);
+
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Instantiate fragments/sharedprefs
         sm = new SessionManager(getApplicationContext());
         fm = getFragmentManager();
         MatchUserFragment MUF = new MatchUserFragment();
-        fm.beginTransaction().replace(R.id.content_frame, MUF).commit();
+        fm.beginTransaction()
+                .replace(R.id.content_frame, MUF)
+                .addToBackStack(null)
+                .commit();
 
         //Action Bar
         Toolbar bar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -155,23 +160,22 @@ public class MatchActivity extends AppCompatActivity {
                 fm.beginTransaction()
                         .setCustomAnimations(R.animator.enter, R.animator.exit)
                         .replace(R.id.content_frame, pf)
-                        .addToBackStack(null)
                         .commit();
                 break;
             case 2:
                 fm = getFragmentManager();
                 SettingsFragment sf = new SettingsFragment();
-                fm.beginTransaction().replace(R.id.content_frame, sf).addToBackStack(null).commit();
+                fm.beginTransaction().replace(R.id.content_frame, sf).commit();
                 break;
             case 3:
                 fm = getFragmentManager();
                 HelpFragment hf = new HelpFragment();
-                fm.beginTransaction().replace(R.id.content_frame, hf).addToBackStack(null).commit();
+                fm.beginTransaction().replace(R.id.content_frame, hf).commit();
                 break;
             case 4:
                 fm = getFragmentManager();
                 ShareFragment shf = new ShareFragment();
-                fm.beginTransaction().replace(R.id.content_frame, shf).addToBackStack(null).commit();
+                fm.beginTransaction().replace(R.id.content_frame, shf).commit();
                 break;
         }
     }
@@ -190,7 +194,7 @@ public class MatchActivity extends AppCompatActivity {
         }
         switch (item.getItemId()) {
             case R.id.action_logout:
-                new AlertDialog.Builder(this)
+                new AlertDialog.Builder(this, R.style.AppTheme_Dark_Dialog)
                         .setIcon(R.drawable.gymbuddyicon)
                         .setTitle("Logout Confirmation")
                         .setMessage("Are you sure you want to logout?")
