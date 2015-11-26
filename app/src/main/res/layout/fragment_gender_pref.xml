@@ -39,6 +39,6 @@
         android:id="@+id/btnGenNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Proceed"/>
+        android:text="Continue"/>
 
 </LinearLayout>
