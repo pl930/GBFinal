@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -38,6 +39,10 @@ public class ProfileSetupFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_profile_setup, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
         Button setup = (Button) view.findViewById(R.id.btnProfileNext);
+        NumberPicker np = (NumberPicker) view.findViewById(R.id.np);
+        np.setMaxValue(100);
+        np.setMinValue(1);
+        np.setWrapSelectorWheel(false);
         setup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,8 +65,10 @@ public class ProfileSetupFragment extends Fragment {
 
     public void setValues(View view)
     {
-        EditText age = (EditText)view.findViewById(R.id.edtAge);
-        int age2 = Integer.parseInt(age.getText().toString());
+        //EditText age = (EditText)view.findViewById(R.id.edtAge);
+
+        NumberPicker np = (NumberPicker) view.findViewById(R.id.np);
+        int age2 = np.getValue();
         boolean sex;
         RadioGroup rg = (RadioGroup)view.findViewById(R.id.maleorfemale);
         String radiovalue = ((RadioButton)view.findViewById(rg.getCheckedRadioButtonId())).getText().toString();
