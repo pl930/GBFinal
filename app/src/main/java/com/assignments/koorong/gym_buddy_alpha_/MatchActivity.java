@@ -1,17 +1,25 @@
 package com.assignments.koorong.gym_buddy_alpha_;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -40,7 +48,10 @@ public class MatchActivity extends AppCompatActivity {
     private String[] menuOptions;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
+
+    //Action Bar
     private ActionBarDrawerToggle drawerToggle;
+
     FragmentManager fm;
     SessionManager sm;
 
@@ -51,26 +62,43 @@ public class MatchActivity extends AppCompatActivity {
     private String[] navMenuSubheadings;
     private TypedArray navMenuIcons;
 
-    UserDataSource ds;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //Instantiate fragments/sharedprefs
         sm = new SessionManager(getApplicationContext());
         fm = getFragmentManager();
         MatchUserFragment MUF = new MatchUserFragment();
         fm.beginTransaction().replace(R.id.content_frame, MUF).commit();
-        Toolbar bar = (Toolbar)findViewById(R.id.my_toolbar);
+
+        //Action Bar
+        Toolbar bar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(bar);
         setTitle("Matches");
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, bar, R.string.drawer_open, R.string.drawer_close) {
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                invalidateOptionsMenu();
+            }
+
+            public void onDrawerOpened(View view) {
+                super.onDrawerOpened(view);
+                invalidateOptionsMenu();
+            }
+        };
+
+        //drawerLayout.setDrawerListener(drawerToggle);
+
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setHomeButtonEnabled(true);
 
 
         menuOptions = getResources().getStringArray(R.array.menu_options);
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        drawerList = (ListView)findViewById(R.id.left_drawer);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerList = (ListView) findViewById(R.id.left_drawer);
 
         LayoutInflater inflater = getLayoutInflater();
 
@@ -78,10 +106,10 @@ public class MatchActivity extends AppCompatActivity {
         String appUserName = sm.getUserDetails().getName();
         String appUserEmail = sm.getUserDetails().getEmail();
 
-        TextView name = (TextView)navHead.findViewById(R.id.name);
+        TextView name = (TextView) navHead.findViewById(R.id.name);
         name.setText(appUserName);
 
-        TextView email = (TextView)navHead.findViewById(R.id.email);
+        TextView email = (TextView) navHead.findViewById(R.id.email);
         email.setText(appUserEmail);
 
 
@@ -93,8 +121,8 @@ public class MatchActivity extends AppCompatActivity {
 
         navItems = new ArrayList<>();
 
-        for(int i = 0; i<4; i++){
-            navItems.add(new NavDrawerItem(navMenuIcons.getResourceId(i,-1), navMenuHeadings[i], navMenuSubheadings[i]));
+        for (int i = 0; i < 4; i++) {
+            navItems.add(new NavDrawerItem(navMenuIcons.getResourceId(i, -1), navMenuHeadings[i], navMenuSubheadings[i]));
         }
 
         navMenuIcons.recycle();
@@ -104,27 +132,11 @@ public class MatchActivity extends AppCompatActivity {
         drawerList.setOnItemClickListener(new DrawerItemClickListener());
 
 
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, null, 0, 0){
-            public void onDrawerClosed(View view){
-                super.onDrawerClosed(view);
-                invalidateOptionsMenu();
-            }
-
-            public void onDrawerOpened(View view){
-                super.onDrawerOpened(view);
-                invalidateOptionsMenu();
-            }
-        };
-
-        drawerLayout.setDrawerListener(drawerToggle);
-
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
-        //getActionBar().setHomeButtonEnabled(true);
     }
 
 
     /*On nav drawer item click listener*/
-    private class DrawerItemClickListener implements ListView.OnItemClickListener{
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -135,8 +147,8 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     /*Drawer item click swap fragment method*/
-    private void selectItem(int position){
-        switch(position){
+    private void selectItem(int position) {
+        switch (position) {
             case 1:
                 fm = getFragmentManager();
                 PreferencesFragment pf = new PreferencesFragment();
@@ -165,6 +177,42 @@ public class MatchActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_matching, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.gymbuddyicon)
+                        .setTitle("Logout Confirmation")
+                        .setMessage("Are you sure you want to logout?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                sm.logout();
+                                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
+
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     /***
      * Called when invalidateOptionsMenu() is triggered
      */
@@ -178,7 +226,7 @@ public class MatchActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        drawerToggle.syncState();
+        //drawerToggle.syncState();
     }
 
     @Override

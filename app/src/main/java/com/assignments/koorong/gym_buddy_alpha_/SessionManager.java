@@ -56,4 +56,8 @@ public class SessionManager {
         return user;
     }
 
+    public void logout(){
+        pref.edit().clear().commit();
+    }
+
 }

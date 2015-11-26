@@ -2,6 +2,7 @@ package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
@@ -294,10 +295,6 @@ public class MatchUserFragment extends Fragment {
 //
 //        return ids;
 //    }
-    private void logout()
-    {
-        SharedPreferences settings = getActivity().getApplicationContext().getSharedPreferences("PreferencesName", Context.MODE_PRIVATE);
-        settings.edit().clear().commit();
-    }
+
 
 }
