@@ -2,6 +2,7 @@ package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -25,9 +27,11 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
+import com.assignments.koorong.gym_buddy_alpha_.ProfileActivity;
 import com.assignments.koorong.gym_buddy_alpha_.R;
 import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 import com.assignments.koorong.gym_buddy_alpha_.User;
+import com.assignments.koorong.gym_buddy_alpha_.ViewProfile;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -60,6 +64,35 @@ public class MatchUserFragment extends Fragment {
         loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         new getItems().execute();
        // displayIds(view);
+        ListView lv = (ListView) view.findViewById(R.id.UserMatches);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1,
+                                    int position, long arg3) {
+
+                Class profileclass = ViewProfile.class;
+                //You could lookup by position, but "name" is more general
+                //arg1.findViewById(R.id.)
+
+
+                
+                Intent intent = new Intent(arg1.getContext(),profileclass);
+                intent.putExtra("test", "test");
+                startActivity(intent);
+
+
+                //>>>>>>View Profile Fragment Stuff: may use later<<<<<<
+                //Bundle info = new Bundle();
+                //info.putString("test", "test");
+                //FragmentManager fm = getFragmentManager();
+                //ProfileViewFragment viewProfileFragment = new ProfileViewFragment();
+                //viewProfileFragment.setArguments(info);
+                //fm.beginTransaction().replace(R.id.content_frame, viewProfileFragment).addToBackStack(null).commit();
+
+            }
+        });
         return view;
     }
 

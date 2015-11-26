@@ -100,7 +100,6 @@ public class MatchActivity extends AppCompatActivity {
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         //getActionBar().setHomeButtonEnabled(true);
 
-
         menuOptions = getResources().getStringArray(R.array.menu_options);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerList = (ListView) findViewById(R.id.left_drawer);
@@ -116,7 +115,6 @@ public class MatchActivity extends AppCompatActivity {
 
         TextView email = (TextView) navHead.findViewById(R.id.email);
         email.setText(appUserEmail);
-
 
         drawerList.addHeaderView(navHead);
 
@@ -138,7 +136,6 @@ public class MatchActivity extends AppCompatActivity {
 
 
     }
-
 
     /*On nav drawer item click listener*/
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
