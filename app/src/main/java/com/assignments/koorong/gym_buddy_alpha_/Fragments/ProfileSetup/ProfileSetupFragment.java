@@ -78,22 +78,24 @@ public class ProfileSetupFragment extends Fragment {
         }else{
             sex = true;
         }
-
-        show(view, age2, sex);
+       // sm.getUserDetails().setAge(age2);
+        //sm.getUserDetails().setGender(sex);
+        sm.setUpProfile(age2, sex);
+       // show(view, age2, sex);
     }
 
-    public void show(View view, int age, boolean sex)
-    {
-        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                getActivity().getApplicationContext(),
-                "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
-                Regions.US_EAST_1 // Region
-        );
-        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-        DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
-        User selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
-        selectedUser.setAge(age);
-        selectedUser.setGender(sex);
-        mapper.save(selectedUser);
-    }
+//    public void show(View view, int age, boolean sex)
+//    {
+//        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+//                getActivity().getApplicationContext(),
+//                "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
+//                Regions.US_EAST_1 // Region
+//        );
+//        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+//        DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+//        User selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
+//        selectedUser.setAge(age);
+//        selectedUser.setGender(sex);
+//        mapper.save(selectedUser);
+//    }
 }

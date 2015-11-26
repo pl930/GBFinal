@@ -71,22 +71,23 @@ public class ExpPrefFragment extends Fragment {
             selected = 2;
         }
 
-
-        show(view, selected);
+        //sm.getUserDetails().setexperience(selected);
+        sm.setUpExpPref(selected);
+       // show(view, selected);
     }
 
-    public void show(View view, int selected)
-    {
-        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                getActivity().getApplicationContext(),
-                "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
-                Regions.US_EAST_1 // Region
-        );
-        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-        DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
-        User selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
-        selectedUser.setexperience(selected);
-        mapper.save(selectedUser);
-    }
+//    public void show(View view, int selected)
+//    {
+//        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+//                getActivity().getApplicationContext(),
+//                "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
+//                Regions.US_EAST_1 // Region
+//        );
+//        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+//        DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+//        User selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
+//        selectedUser.setexperience(selected);
+//        mapper.save(selectedUser);
+//    }
 
 }

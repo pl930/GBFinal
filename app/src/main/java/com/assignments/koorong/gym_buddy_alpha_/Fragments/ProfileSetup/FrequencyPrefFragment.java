@@ -67,7 +67,7 @@ public class FrequencyPrefFragment extends Fragment {
             selected = 2;
         }
 
-
+        //last one, do not need to put in shared preferences
         show(view, selected);
     }
 
@@ -82,6 +82,11 @@ public class FrequencyPrefFragment extends Fragment {
         DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
         User selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
         selectedUser.setfrequency(selected);
+        selectedUser.setAgePref(sm.getUserDetails().getAgePref());
+        selectedUser.setAge(sm.getUserDetails().getAge());
+        selectedUser.setexperience(sm.getUserDetails().getexperience());
+        selectedUser.setgenderPref(sm.getUserDetails().getgenderPref());
+        selectedUser.setGender(sm.getUserDetails().getGender());
         mapper.save(selectedUser);
     }
 
