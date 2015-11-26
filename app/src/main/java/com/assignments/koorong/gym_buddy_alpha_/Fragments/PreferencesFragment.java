@@ -4,6 +4,7 @@ package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,8 @@ public class PreferencesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_preferences, container, false);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         sm = new SessionManager(getActivity().getApplicationContext());
         Button setup = (Button)view.findViewById(R.id.btnExpNext2);
         setup.setOnClickListener(new View.OnClickListener() {
