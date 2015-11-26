@@ -2,9 +2,11 @@ package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 
 
 import android.app.FragmentManager;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.os.StrictMode;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,10 @@ import com.assignments.koorong.gym_buddy_alpha_.User;
  * A simple {@link Fragment} subclass.
  */
 public class PreferencesFragment extends Fragment {
+    int genPref;
+    int freq;
+    int exp;
+    int agePref;
 
     SessionManager sm;
     public PreferencesFragment() {
@@ -36,19 +42,20 @@ public class PreferencesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_preferences, container, false);
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.AppTheme_Dark_Dialog);
+        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+        final View view = localInflater.inflate(R.layout.fragment_preferences, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
         Button setup = (Button)view.findViewById(R.id.btnExpNext2);
         setup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setValues(view);
+                new updatePrefs().execute();
                 MatchUserFragment epFrag = new MatchUserFragment();
                 FragmentManager fm = getFragmentManager();
                 fm.beginTransaction()
-                        .replace(R.id.setupContainer, epFrag)
+                        .replace(R.id.content_frame, epFrag)
                         .commit();
             }
         });
@@ -57,20 +64,19 @@ public class PreferencesFragment extends Fragment {
 
     public void setValues(View view)
     {
-        int genderPref =0;
         RadioGroup rg = (RadioGroup)view.findViewById(R.id.radioGenderPrefSet);
         String radiovalue = ((RadioButton)view.findViewById(rg.getCheckedRadioButtonId())).getText().toString();
         if (radiovalue.equalsIgnoreCase("Male"))
         {
-            genderPref = 0;
+            genPref = 0;
         }
         if (radiovalue.equalsIgnoreCase("Female"))
         {
-            genderPref = 1;
+            genPref = 1;
         }
         if (radiovalue.equalsIgnoreCase("No Preference"))
         {
-            genderPref = 2;
+            genPref = 2;
         }
 
         int frequency =0;
@@ -78,73 +84,77 @@ public class PreferencesFragment extends Fragment {
         radiovalue = ((RadioButton)view.findViewById(rg.getCheckedRadioButtonId())).getText().toString();
         if (radiovalue.equalsIgnoreCase("1 to 3"))
         {
-            frequency = 0;
+            freq = 0;
         }
         if (radiovalue.equalsIgnoreCase("3 to 5"))
         {
-            frequency = 1;
+            freq = 1;
         }
         if (radiovalue.equalsIgnoreCase("5+"))
         {
-            frequency = 2;
+            freq = 2;
         }
 
-        int experience =0;
         rg = (RadioGroup)view.findViewById(R.id.expPrefRSet);
         radiovalue = ((RadioButton)view.findViewById(rg.getCheckedRadioButtonId())).getText().toString();
         if (radiovalue.equalsIgnoreCase("Beginner"))
         {
-            experience = 0;
+            exp = 0;
         }
         if (radiovalue.equalsIgnoreCase("Intermediate"))
         {
-            experience = 1;
+            exp = 1;
         }
         if (radiovalue.equalsIgnoreCase("Advanced"))
         {
-            experience = 2;
+            exp = 2;
         }
 
-        int agepref =0;
         rg = (RadioGroup)view.findViewById(R.id.agePrefGrSet);
         radiovalue = ((RadioButton)view.findViewById(rg.getCheckedRadioButtonId())).getText().toString();
         if (radiovalue.equalsIgnoreCase("18 - 24"))
         {
-            agepref = 0;
+            agePref = 0;
         }
         if (radiovalue.equalsIgnoreCase("25 - 30"))
         {
-            agepref = 1;
+            agePref = 1;
         }
         if (radiovalue.equalsIgnoreCase("31 - 38"))
         {
-            agepref = 2;
+            agePref = 2;
         }
         if (radiovalue.equalsIgnoreCase("No Preference"))
         {
-            agepref = 3;
+            agePref = 3;
         }
-
-
-        show(view, genderPref, frequency, experience, agepref);
     }
 
 
+    private class updatePrefs extends AsyncTask<Void, Void, Void>{
 
-    public void show(View view, int genderPref, int frequency, int experience, int agepref)
-    {
-        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                getActivity().getApplicationContext(),
-                "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
-                Regions.US_EAST_1 // Region
-        );
-        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-        DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
-        User selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
-        selectedUser.setgenderPref(genderPref);
-        selectedUser.setfrequency(frequency);
-        selectedUser.setexperience(experience);
-        selectedUser.setAgePref(agepref);
-        mapper.save(selectedUser);
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+                    getActivity().getApplicationContext(),
+                    "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
+                    Regions.US_EAST_1 // Region
+            );
+            AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+            DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+            User selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
+            selectedUser.setgenderPref(genPref);
+            selectedUser.setfrequency(freq);
+            selectedUser.setexperience(exp);
+            selectedUser.setAgePref(agePref);
+            mapper.save(selectedUser);
+
+            return null;
+        }
     }
 }

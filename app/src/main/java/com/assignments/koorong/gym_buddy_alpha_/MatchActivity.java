@@ -75,8 +75,8 @@ public class MatchActivity extends AppCompatActivity {
         fm = getFragmentManager();
         MatchUserFragment MUF = new MatchUserFragment();
         fm.beginTransaction()
-                .replace(R.id.content_frame, MUF)
                 .addToBackStack(null)
+                .replace(R.id.content_frame, MUF)
                 .commit();
 
         //Action Bar
@@ -159,23 +159,25 @@ public class MatchActivity extends AppCompatActivity {
                 PreferencesFragment pf = new PreferencesFragment();
                 fm.beginTransaction()
                         .setCustomAnimations(R.animator.enter, R.animator.exit)
+                        .addToBackStack(null)
+                        .setCustomAnimations(R.animator.enter, R.animator.exit)
                         .replace(R.id.content_frame, pf)
                         .commit();
                 break;
             case 2:
                 fm = getFragmentManager();
                 SettingsFragment sf = new SettingsFragment();
-                fm.beginTransaction().replace(R.id.content_frame, sf).commit();
+                fm.beginTransaction().addToBackStack(null).setCustomAnimations(R.animator.enter, R.animator.exit).replace(R.id.content_frame, sf).commit();
                 break;
             case 3:
                 fm = getFragmentManager();
                 HelpFragment hf = new HelpFragment();
-                fm.beginTransaction().replace(R.id.content_frame, hf).commit();
+                fm.beginTransaction().addToBackStack(null).setCustomAnimations(R.animator.enter, R.animator.exit).replace(R.id.content_frame, hf).commit();
                 break;
             case 4:
                 fm = getFragmentManager();
                 ShareFragment shf = new ShareFragment();
-                fm.beginTransaction().replace(R.id.content_frame, shf).commit();
+                fm.beginTransaction().addToBackStack(null).setCustomAnimations(R.animator.enter, R.animator.exit).replace(R.id.content_frame, shf).commit();
                 break;
         }
     }
