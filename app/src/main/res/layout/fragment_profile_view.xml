@@ -7,18 +7,13 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/matchName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView"
-            android:layout_alignParentTop="true"
-            android:text="UserName"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -27,6 +22,22 @@
             android:layout_below="@+id/matchName"
             android:layout_centerHorizontal="true"
             android:src="@drawable/face" />
-    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/matchName2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageView"
+            android:text="UserName"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/matchSummary2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageView"
+            android:text="This user has not entered a summary"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
 
 </FrameLayout>
