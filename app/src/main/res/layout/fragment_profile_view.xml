@@ -1,5 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pview_fragment"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileViewFragment">
 
@@ -10,20 +12,21 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/matchName"
-            android:text="UserName"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageView" />
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignParentTop="true"
+            android:text="UserName"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ImageView
             android:id="@+id/imageView"
-            android:src="@drawable/face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/matchName"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/face" />
     </RelativeLayout>
 
 </FrameLayout>

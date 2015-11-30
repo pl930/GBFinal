@@ -27,10 +27,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.assignments.koorong.gym_buddy_alpha_.Fragments.HelpFragment;
 import com.assignments.koorong.gym_buddy_alpha_.Fragments.MatchUserFragment;
 import com.assignments.koorong.gym_buddy_alpha_.Fragments.PreferencesFragment;
+import com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileViewFragment;
 import com.assignments.koorong.gym_buddy_alpha_.Fragments.SettingsFragment;
 import com.assignments.koorong.gym_buddy_alpha_.Fragments.ShareFragment;
 import com.assignments.koorong.gym_buddy_alpha_.NavDrawer.NavDrawerAdapter;
@@ -44,7 +46,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MatchActivity extends AppCompatActivity {
+public class MatchActivity extends AppCompatActivity implements MatchUserFragment.OnItemSelectedListener{
     private String[] menuOptions;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
@@ -137,6 +139,35 @@ public class MatchActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemSelected(String email) {
+
+        ProfileViewFragment pFrag = new ProfileViewFragment();
+        Bundle args = new Bundle();
+        args.putString("Email", email);
+        pFrag.setArguments(args);
+
+        fm.beginTransaction()
+                .replace(R.id.content_frame, pFrag)
+                .addToBackStack(null)
+                .setCustomAnimations(R.animator.enter, R.animator.exit)
+                .commit();
+
+
+    }
+
+    @Override
+    public void onBackPressed(){
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            Log.i("MatchActivity", "popping backstack");
+            fm.popBackStack();
+        } else {
+            Log.i("MatchActivity", "nothing on backstack, calling super");
+            super.onBackPressed();
+        }
+    }
+
     /*On nav drawer item click listener*/
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
 
@@ -157,7 +188,6 @@ public class MatchActivity extends AppCompatActivity {
                 fm.beginTransaction()
                         .setCustomAnimations(R.animator.enter, R.animator.exit)
                         .addToBackStack(null)
-                        .setCustomAnimations(R.animator.enter, R.animator.exit)
                         .replace(R.id.content_frame, pf)
                         .commit();
                 break;

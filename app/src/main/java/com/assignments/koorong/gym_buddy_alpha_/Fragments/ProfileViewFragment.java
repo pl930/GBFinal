@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.assignments.koorong.gym_buddy_alpha_.R;
 
@@ -30,16 +31,12 @@ public class ProfileViewFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile_view, container, false);
 
-        // Inflate the layout for this fragment
-        Bundle info = this.getArguments();
-        String nameReceived = info.getString("test");
+        String email = getArguments().getString("Email");
+        Toast.makeText(getActivity(), "Email: " + email, Toast.LENGTH_LONG).show();
 
-        TextView name = (TextView) view.findViewById(R.id.matchName);
-        Log.i("test","Name: " + nameReceived);
-        name.setText(nameReceived);
-      //  name.setText(nameReceived);
-
-        return inflater.inflate(R.layout.fragment_profile_view, container, false);
+        return view;
     }
+
+
 
 }
