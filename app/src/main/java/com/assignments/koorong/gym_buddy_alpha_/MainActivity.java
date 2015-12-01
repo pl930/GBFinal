@@ -7,13 +7,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
     SessionManager sm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         sm = new SessionManager(getApplicationContext());
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -27,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }
+
+        /*Intent i = new Intent(getApplicationContext(), LandingActivity.class);
+        startActivity(i);
+        finish();*/
 
 //        Intent i = new Intent(getApplication(), SetUpActivity.class);
 //        startActivity(i);

@@ -66,18 +66,17 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_match);
-
-        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Instantiate fragments/sharedprefs
         sm = new SessionManager(getApplicationContext());
         fm = getFragmentManager();
         MatchUserFragment MUF = new MatchUserFragment();
         fm.beginTransaction()
-                .addToBackStack(null)
                 .replace(R.id.content_frame, MUF)
                 .commit();
 
