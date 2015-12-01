@@ -2,14 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.MatchUserFragment">
 
     <ListView
         android:id="@android:id/list"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/iron"
-        android:dividerHeight="3sp">
+        android:divider="#00000000"
+        android:dividerHeight="5dp">
     </ListView>
 
 
