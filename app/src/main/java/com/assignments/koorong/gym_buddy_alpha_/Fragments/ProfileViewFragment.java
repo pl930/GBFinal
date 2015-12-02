@@ -63,7 +63,7 @@ public class ProfileViewFragment extends Fragment {
             public void onClick(View v) {
                 Intent smsIntent = new Intent(Intent.ACTION_VIEW);
                 smsIntent.setType("vnd.android-dir/mms-sms");
-                smsIntent.putExtra("address", "9058785542");
+                smsIntent.putExtra("address", "9056916760");
                 smsIntent.putExtra("sms_body","Hey I matched with you on gymbuddy");
                 startActivity(smsIntent);
 
