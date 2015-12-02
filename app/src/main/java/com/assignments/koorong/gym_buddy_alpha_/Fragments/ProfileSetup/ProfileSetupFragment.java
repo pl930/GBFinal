@@ -41,7 +41,7 @@ public class ProfileSetupFragment extends Fragment {
         Button setup = (Button) view.findViewById(R.id.btnProfileNext);
         NumberPicker np = (NumberPicker) view.findViewById(R.id.np);
         np.setMaxValue(100);
-        np.setMinValue(1);
+        np.setMinValue(18);
         np.setWrapSelectorWheel(false);
         setup.setOnClickListener(new View.OnClickListener() {
             @Override
