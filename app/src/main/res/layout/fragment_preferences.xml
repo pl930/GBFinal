@@ -18,8 +18,6 @@
                 android:layout_weight="0.92"
                 android:hint="Location"
                 />
-
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
@@ -34,13 +32,16 @@
             <TextView
             android:text="Gender Preference?"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+               />
         <RadioGroup
-            android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:layout_width="228dp"
             android:layout_height="match_parent"
             android:id="@+id/radioGenderPrefSet"
-            >
+            android:backgroundTint="@color/abc_search_url_text_pressed"
+            android:background="@drawable/prefs_background"
+            android:gravity="center">
 
             <RadioButton
                 android:id="@+id/radio_prefMale"
@@ -63,13 +64,14 @@
         <TextView
             android:text="How often do you workout?"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
         <RadioGroup
-            android:layout_width="match_parent"
+            android:layout_width="228dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
             android:id="@+id/radioFreqSet"
-            >
+            android:gravity="center_horizontal|clip_horizontal"
+            android:background="@drawable/prefs_background">
             <RadioButton
                 android:id="@+id/radio_three"
                 android:layout_width="wrap_content"
@@ -92,12 +94,14 @@
         <TextView
             android:text="Experience?"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
         <RadioGroup
             android:id="@+id/expPrefRSet"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_width="228dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:background="@drawable/prefs_background">
             <RadioButton
                 android:id="@+id/radio_beginner"
                 android:layout_width="wrap_content"
@@ -119,14 +123,16 @@
         <TextView
             android:text="Age preference?"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
 
         <RadioGroup
             android:id="@+id/agePrefGrSet"
-            android:layout_width="match_parent"
+            android:layout_width="228dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:gravity="center_horizontal"
+            android:background="@drawable/prefs_background">
 
             <RadioButton
                 android:id="@+id/radio_18"
