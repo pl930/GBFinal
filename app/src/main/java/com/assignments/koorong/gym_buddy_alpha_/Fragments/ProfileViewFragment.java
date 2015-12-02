@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileSetup.FrequencyPrefFragment;
 import com.assignments.koorong.gym_buddy_alpha_.R;
 import com.assignments.koorong.gym_buddy_alpha_.User;
 
@@ -45,7 +48,7 @@ public class ProfileViewFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_profile_view, container, false);
 
         email = getArguments().getString("Email");
-        Toast.makeText(getActivity(), "Email: " + email, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(), "Email: " + email, Toast.LENGTH_LONG).show();
 
 //        loading = new ProgressDialog(view.getContext(), R.style.AppTheme_Dark_Dialog);
 //        loading.setCancelable(false);
@@ -53,6 +56,19 @@ public class ProfileViewFragment extends Fragment {
 //        loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
        // new getItems().execute();
+
+        Button setup = (Button)view.findViewById(R.id.matchButton);
+        setup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+                smsIntent.setType("vnd.android-dir/mms-sms");
+                smsIntent.putExtra("address", "9058785542");
+                smsIntent.putExtra("sms_body","Hey I matched with you on gymbuddy");
+                startActivity(smsIntent);
+
+            }
+        });
 
         return view;
     }

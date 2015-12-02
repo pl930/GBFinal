@@ -69,6 +69,7 @@
                 android:layout_weight="0.5"
                 android:layout_gravity="bottom"
                 android:text="Match"
+                android:id="@+id/matchButton"
                 />
 
         </LinearLayout>
