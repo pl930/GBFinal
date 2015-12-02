@@ -1,43 +1,79 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/pview_fragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileViewFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.example.brandon.gymbuddy.ProfileActivity">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4">
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/niccage"
+        android:id="@+id/picture"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:orientation="vertical"
+        >
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center">
+        android:textSize="32sp"
+        android:text="Superman"
+        android:id="@+id/textView"/>
 
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/matchName"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/face" />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Burlington"
+        android:id="@+id/textView2"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/black" />
         <TextView
-            android:id="@+id/matchName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView"
-            android:text="UserName"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textSize="20sp"
+            android:text="I am the last son of the dead planet Krypton. I am looking for a gym buddy to help me train to fight Doomsday"
+            android:id="@+id/textView3"/>
 
-        <TextView
-            android:id="@+id/matchSummary2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView"
-            android:text="This user has not entered a summary"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:layout_gravity="bottom"
+                android:text="Deny"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:layout_gravity="bottom"
+                android:text="Match"
+                />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-</FrameLayout>
+
+</LinearLayout>
