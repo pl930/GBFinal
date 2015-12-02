@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,7 +56,7 @@ public class ProfileViewFragment extends Fragment {
 //        loading.setMessage("Getting Matches");
 //        loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
-       // new getItems().execute();
+        new getItems().execute();
 
         Button setup = (Button)view.findViewById(R.id.matchButton);
         setup.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +64,7 @@ public class ProfileViewFragment extends Fragment {
             public void onClick(View v) {
                 Intent smsIntent = new Intent(Intent.ACTION_VIEW);
                 smsIntent.setType("vnd.android-dir/mms-sms");
-                smsIntent.putExtra("address", "9058785542");
+                smsIntent.putExtra("address", "9056916760");
                 smsIntent.putExtra("sms_body","Hey I matched with you on gymbuddy");
                 startActivity(smsIntent);
 
@@ -112,6 +113,16 @@ public class ProfileViewFragment extends Fragment {
     }
 
         private void populateUI(){
+              String name = selectedUser.getName();
+              if(!name.equalsIgnoreCase("Superman"))
+              {
+                  TextView txtName = (TextView)view.findViewById(R.id.profileName);
+                  txtName.setText(selectedUser.getName());
+                  TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
+                  txtSummary.setText("This user has not entered a summary yet");
+                  ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
+                  imgView.setImageResource(R.drawable.face);
+              }
 //            TextView txtName = (TextView)view.findViewById(R.id.matchName2);
 //            txtName.setText(selectedUser.getName());
 //            TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
