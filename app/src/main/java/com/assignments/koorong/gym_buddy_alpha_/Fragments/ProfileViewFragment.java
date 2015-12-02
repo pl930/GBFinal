@@ -52,7 +52,7 @@ public class ProfileViewFragment extends Fragment {
 //        loading.setMessage("Getting Matches");
 //        loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
-        new getItems().execute();
+       // new getItems().execute();
 
         return view;
     }
@@ -96,13 +96,13 @@ public class ProfileViewFragment extends Fragment {
     }
 
         private void populateUI(){
-            TextView txtName = (TextView)view.findViewById(R.id.matchName2);
-            txtName.setText(selectedUser.getName());
-            TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
-            if(selectedUser.getgoal() != null)
-            {
-                txtSummary.setText(selectedUser.getgoal());
-            }
+//            TextView txtName = (TextView)view.findViewById(R.id.matchName2);
+//            txtName.setText(selectedUser.getName());
+//            TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
+//            if(selectedUser.getgoal() != null)
+//            {
+//                txtSummary.setText(selectedUser.getgoal());
+//            }
         }
 
 }
