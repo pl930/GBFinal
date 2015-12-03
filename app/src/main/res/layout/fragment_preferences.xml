@@ -3,7 +3,6 @@
              android:layout_height="match_parent"
              tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.SettingsFragment"
     >
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -20,7 +19,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:weightSum="1">
 
             <TextView
             android:text="Gender Preference?"
@@ -157,18 +157,14 @@
                 android:layout_height="wrap_content"
                 android:text="No Preference"/>
         </RadioGroup>
-
-
+                <Button
+                    android:id="@+id/btnExpNext2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Update"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.31" />
             </LinearLayout>
         </ScrollView>
-        <Button
-            android:id="@+id/btnExpNext2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update"
-            android:layout_marginTop="10dp"/>
-
-
     </LinearLayout>
-
 </FrameLayout>
