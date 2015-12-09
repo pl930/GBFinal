@@ -122,6 +122,14 @@ public class ProfileViewFragment extends Fragment {
                   txtSummary.setText("This user has not entered a summary yet");
                   ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
                   imgView.setImageResource(R.drawable.face);
+              }else{
+                  TextView txtName = (TextView)view.findViewById(R.id.profileName);
+                  txtName.setText("Superman");
+                  TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
+                  txtSummary.setText("I am the last son of the dead planet Krypton. I am looking for a gym buddy to help me train to fight Doomsday");
+                  ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
+                  imgView.setImageResource(R.drawable.niccage);
+
               }
 //            TextView txtName = (TextView)view.findViewById(R.id.matchName2);
 //            txtName.setText(selectedUser.getName());
