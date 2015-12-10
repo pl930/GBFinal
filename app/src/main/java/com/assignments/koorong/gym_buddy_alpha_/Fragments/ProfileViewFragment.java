@@ -124,6 +124,31 @@ public class ProfileViewFragment extends Fragment {
                   txtSummary.setText("I am the last son of the dead planet Krypton. I am looking for a gym buddy to help me train to fight Doomsday");
                   ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
                   imgView.setImageResource(R.drawable.niccage);
+                  TextView txtFrequency = (TextView)view.findViewById(R.id.matchFrequency);
+                  int freq =  selectedUser.getfrequency();
+                  if (freq == 0)
+                  {
+                      txtFrequency.setText("-Works out 1-3 times a week");
+                  }else if (freq == 1)
+                  {
+                      txtFrequency.setText("-Works out 3 times a week");
+                  }else{
+                      txtFrequency.setText("-Works out 5+ times a week");
+                  }
+                  TextView txtExp = (TextView)view.findViewById(R.id.matchExp);
+                  int advan = selectedUser.getexperience();
+                  if (advan == 0)
+                  {
+                      txtExp.setText("-Beginner");
+
+                  }else if (advan == 1)
+                  {
+                      txtExp.setText("-Experienced");
+                  }else{
+                      txtExp.setText("-Advanced");
+                  }
+
+
 
               }else if(name.equalsIgnoreCase("Raiden")){
                   TextView txtName = (TextView)view.findViewById(R.id.profileName);

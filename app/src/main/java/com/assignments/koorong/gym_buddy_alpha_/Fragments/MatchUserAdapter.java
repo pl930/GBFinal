@@ -39,12 +39,16 @@ public class MatchUserAdapter extends ArrayAdapter<User>{
 
         TextView name = (TextView)convertView.findViewById(R.id.txtName);
         TextView email = (TextView)convertView.findViewById(R.id.txtEmail);
+        TextView num = (TextView)convertView.findViewById(R.id.txtMatchNum);
 
         User user = data.get(position);
         String uName = user.getName();
 
         name.setText(uName);
         email.setText(user.getEmail());
+        //num.setText("1");
+        num.setText(Integer.toString(data.get(position).getexerciseType()));
+
 
 
         return convertView;
