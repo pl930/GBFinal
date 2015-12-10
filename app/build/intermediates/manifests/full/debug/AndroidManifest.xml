@@ -11,11 +11,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
-    <service
-        android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
-        android:enabled="true" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -34,10 +29,10 @@
         </activity>
         <activity
             android:name="com.assignments.koorong.gym_buddy_alpha_.LoginActivity"
-            android:theme="@style/AppTheme.Dark" />
+            android:theme="@style/AppTheme.Dark.Main" />
         <activity
             android:name="com.assignments.koorong.gym_buddy_alpha_.SignupActivity"
-            android:theme="@style/AppTheme.Dark" />
+            android:theme="@style/AppTheme.Dark.Main" />
         <activity
             android:name="com.assignments.koorong.gym_buddy_alpha_.MatchActivity"
             android:theme="@style/AppTheme.Dark" />
@@ -45,6 +40,15 @@
             android:name="com.assignments.koorong.gym_buddy_alpha_.SetUpActivity"
             android:label="@string/title_activity_set_up" >
         </activity>
+        <activity
+            android:name="com.assignments.koorong.gym_buddy_alpha_.LandingActivity"
+            android:label="@string/title_activity_landing"
+            android:theme="@style/AppTheme.Dark.Main" >
+        </activity>
+
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
     </application>
 
 </manifest>
