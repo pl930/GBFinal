@@ -10,15 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center">
-
-            <EditText
-                android:singleLine="true"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/editText"
-                android:layout_weight="0.92"
-                android:hint="Location"
-                />
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
@@ -160,15 +151,14 @@
                 android:layout_height="wrap_content"
                 android:text="No Preference"/>
         </RadioGroup>
-
+                <Button
+                    android:id="@+id/btnExpNext2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Update"/>
 
             </LinearLayout>
         </ScrollView>
-        <Button
-            android:id="@+id/btnExpNext2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update"/>
 
 
     </LinearLayout>
