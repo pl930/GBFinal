@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:layout_weight="0.92"
-            android:hint="Settings"
+            android:hint="coming soon"
             />
 
     </LinearLayout>
