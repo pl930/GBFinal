@@ -4,7 +4,14 @@
     tools:context="com.assignments.koorong.gym_buddy_alpha_.Fragments.ShareFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="Settings" />
+    <TextView
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_weight="0.92"
+        android:textSize="20sp"
+        android:hint="coming soon"
+        />
 
 </FrameLayout>

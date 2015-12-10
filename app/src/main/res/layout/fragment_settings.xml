@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/profilePicture"
-            android:src="@drawable/face"
+            android:src="@drawable/gymbuddyicon"
             />
     </LinearLayout>
 
@@ -34,12 +34,12 @@
         android:weightSum="1">
 
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:layout_weight="0.92"
-            android:hint="Location"
+            android:hint="Settings"
             />
 
     </LinearLayout>
