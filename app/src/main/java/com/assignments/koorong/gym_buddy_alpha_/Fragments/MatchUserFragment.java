@@ -194,7 +194,7 @@ public class MatchUserFragment extends ListFragment {
 
             }else {
                 loading.dismiss();
-                Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
                 compare(ids, selectedUser);
                 //displayIds(getView(),ids);
             }
