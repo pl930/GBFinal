@@ -1,34 +1,24 @@
 package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 
 
-import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
-import com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileSetup.AgeprefFragment;
-import com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileSetup.FrequencyPrefFragment;
 import com.assignments.koorong.gym_buddy_alpha_.MatchActivity;
 import com.assignments.koorong.gym_buddy_alpha_.R;
 import com.assignments.koorong.gym_buddy_alpha_.User;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -126,15 +116,8 @@ public class ProfileViewFragment extends Fragment {
 
         private void populateUI(){
               String name = selectedUser.getName();
-              if(!name.equalsIgnoreCase("Superman"))
+              if(name.equalsIgnoreCase("Superman"))
               {
-                  TextView txtName = (TextView)view.findViewById(R.id.profileName);
-                  txtName.setText(selectedUser.getName());
-                  TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
-                  txtSummary.setText("This user has not entered a summary yet");
-                  ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
-                  imgView.setImageResource(R.drawable.face);
-              }else{
                   TextView txtName = (TextView)view.findViewById(R.id.profileName);
                   txtName.setText("Superman");
                   TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
@@ -142,6 +125,42 @@ public class ProfileViewFragment extends Fragment {
                   ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
                   imgView.setImageResource(R.drawable.niccage);
 
+              }else if(name.equalsIgnoreCase("Raiden")){
+                  TextView txtName = (TextView)view.findViewById(R.id.profileName);
+                  txtName.setText(selectedUser.getName());
+                  TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
+                  txtSummary.setText("Need a training partner to help me win the Mortal Kombat Tournament");
+                  ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
+                  imgView.setImageResource(R.drawable.raiden);
+
+              }else if (name.equalsIgnoreCase("Rikishi")){
+                  TextView txtName = (TextView)view.findViewById(R.id.profileName);
+                  txtName.setText(selectedUser.getName());
+                  TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
+                  txtSummary.setText("I need a training partner to help me win the world title");
+                  ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
+                  imgView.setImageResource(R.drawable.rikishi);
+              }else if (name.equalsIgnoreCase("Brock")){
+                  TextView txtName = (TextView)view.findViewById(R.id.profileName);
+                  txtName.setText(selectedUser.getName());
+                  TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
+                  txtSummary.setText("I need a training partner to help me win the world title");
+                  ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
+                  imgView.setImageResource(R.drawable.brock);
+              }else if (name.equalsIgnoreCase("SubZero@gmail.com")){
+                  TextView txtName = (TextView)view.findViewById(R.id.profileName);
+                  txtName.setText(selectedUser.getName());
+                  TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
+                  txtSummary.setText("I must train to defeat Scorpion and Quan Chi");
+                  ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
+                  imgView.setImageResource(R.drawable.subzero);
+              }else{
+                  TextView txtName = (TextView)view.findViewById(R.id.profileName);
+                  txtName.setText(selectedUser.getName());
+                  TextView txtSummary = (TextView)view.findViewById(R.id.matchSummary2);
+                  txtSummary.setText("This user has not entered a summary yet");
+                  ImageView imgView = (ImageView)view.findViewById(R.id.profilePic);
+                  imgView.setImageResource(R.drawable.face);
               }
 //            TextView txtName = (TextView)view.findViewById(R.id.matchName2);
 //            txtName.setText(selectedUser.getName());
