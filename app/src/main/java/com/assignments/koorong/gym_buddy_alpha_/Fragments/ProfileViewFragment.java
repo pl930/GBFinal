@@ -1,6 +1,7 @@
 package com.assignments.koorong.gym_buddy_alpha_.Fragments;
 
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -67,8 +68,8 @@ public class ProfileViewFragment extends Fragment {
         setup2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity().getApplicationContext(), MatchActivity.class);
-                startActivity(i);
+                FragmentManager fm = getFragmentManager();
+                fm.popBackStack();
 
             }
         });
