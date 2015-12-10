@@ -271,12 +271,12 @@ public class MatchUserFragment extends ListFragment {
         try {
             listener = (OnItemSelectedListener) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement OnArticleSelectedListener");
+            throw new ClassCastException(activity.toString() + " must implement OnItemSelectedListener");
         }
     }
 
     public interface OnItemSelectedListener{
-        public void onItemSelected(String email);
+        void onItemSelected(String email);
     }
 
 

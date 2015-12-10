@@ -39,14 +39,10 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences pref;
     SessionManager sm;
 
-    @InjectView(R.id.input_email)
-    EditText _emailText;
-    @InjectView(R.id.input_password)
-    EditText _passwordText;
-    @InjectView(R.id.btn_login)
-    Button _loginButton;
-    @InjectView(R.id.link_signup)
-    TextView _signupLink;
+    @InjectView(R.id.input_email) EditText _emailText;
+    @InjectView(R.id.input_password) EditText _passwordText;
+    @InjectView(R.id.btn_login) Button _loginButton;
+    @InjectView(R.id.link_signup) TextView _signupLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -179,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             try {
                 CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                        getApplicationContext(),
+                        getApplicationContext(), //Context
                         "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
                         Regions.US_EAST_1 // Region
                 );

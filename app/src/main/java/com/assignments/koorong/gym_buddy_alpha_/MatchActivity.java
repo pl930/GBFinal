@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -46,7 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MatchActivity extends AppCompatActivity implements MatchUserFragment.OnItemSelectedListener{
+public class MatchActivity extends AppCompatActivity implements MatchUserFragment.OnItemSelectedListener {
     private String[] menuOptions;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
@@ -72,6 +73,10 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
 
         setContentView(R.layout.activity_match);
 
+        menuOptions = getResources().getStringArray(R.array.menu_options);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerList = (ListView) findViewById(R.id.left_drawer);
+
         //Instantiate fragments/sharedprefs
         sm = new SessionManager(getApplicationContext());
         fm = getFragmentManager();
@@ -84,26 +89,26 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
         Toolbar bar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(bar);
         setTitle("Matches");
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, bar, R.string.drawer_open, R.string.drawer_close) {
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                getSupportActionBar().setTitle("Menu");
                 invalidateOptionsMenu();
             }
 
-            public void onDrawerOpened(View view) {
-                super.onDrawerOpened(view);
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                getSupportActionBar().setTitle("Matches");
                 invalidateOptionsMenu();
             }
         };
 
-        //drawerLayout.setDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+        drawerToggle.setDrawerIndicatorEnabled(true);
+        drawerLayout.setDrawerListener(drawerToggle);
 
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
-        //getActionBar().setHomeButtonEnabled(true);
-
-        menuOptions = getResources().getStringArray(R.array.menu_options);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerList = (ListView) findViewById(R.id.left_drawer);
 
         LayoutInflater inflater = getLayoutInflater();
 
@@ -138,6 +143,19 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
 
     }
 
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
     @Override
     public void onItemSelected(String email) {
 
@@ -151,12 +169,10 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
                 .addToBackStack(null)
                 .setCustomAnimations(R.animator.enter, R.animator.exit)
                 .commit();
-
-
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         FragmentManager fm = getFragmentManager();
         if (fm.getBackStackEntryCount() > 0) {
             Log.i("MatchActivity", "popping backstack");
@@ -206,6 +222,7 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
                 fm.beginTransaction().addToBackStack(null).setCustomAnimations(R.animator.enter, R.animator.exit).replace(R.id.content_frame, shf).commit();
                 break;
         }
+
     }
 
 
@@ -253,18 +270,6 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
         // if nav drawer is opened, hide the action items
         boolean drawerOpen = drawerLayout.isDrawerOpen(drawerList);
         return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        //drawerToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        drawerToggle.onConfigurationChanged(newConfig);
     }
 
 }

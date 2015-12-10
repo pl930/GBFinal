@@ -2,102 +2,102 @@
 <items version="2" >
 
     <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-core\2.2.9\fbcd6eb073e38dfdcaf6a8a68e2533ad72f769a\aws-android-sdk-core-2.2.9.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-9992b350ef7a2fa4f99d5bd0a98da5665cf2ff76.jar" />
-    </item>
-    <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\classes-577f00e3989ee38e64131f72205d0836cd077df0.jar" />
-    </item>
-    <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\classes-1f6cddcdb361f40b049ea5fea8e3e7ac13a97bf0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\butterknife-6.1.0-e65a7aac3b891191b5a01ddc0d01598bf4730c0f.jar" />
+        sha1="0fbcd6eb073e38dfdcaf6a8a68e2533ad72f769a">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-core-2.2.9-975aec8be491e7bd5a717c99061c8f2382ccaa4f.jar" />
     </item>
     <item
         jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\gson-2.2.4-215253c72b8d86eb8eab52d010c473b400805145.jar" />
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\gson-2.2.4-215253c72b8d86eb8eab52d010c473b400805145.jar" />
     </item>
     <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb\2.2.8\7e54e68f16bfbfd2a4f64d12740e104f52c33ff0\aws-android-sdk-ddb-2.2.8.jar"
+        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="7e54e68f16bfbfd2a4f64d12740e104f52c33ff0">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-2.2.8-46fcd0491bb023cea844d88759710ae07f4d68dc.jar" />
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\butterknife-6.1.0-e65a7aac3b891191b5a01ddc0d01598bf4730c0f.jar" />
     </item>
     <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-s3\2.2.8\921e4e1b88dbefd338484a82006b1011ecd5e7d4\aws-android-sdk-s3-2.2.8.jar"
+        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-sdb\2.2.9\b92fee840787fb57eb778e15eea29016379629d7\aws-android-sdk-sdb-2.2.9.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="921e4e1b88dbefd338484a82006b1011ecd5e7d4">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-s3-2.2.8-28eb5a3b2cf12d1df48abcd346bd5f6d5b0157cc.jar" />
+        sha1="b92fee840787fb57eb778e15eea29016379629d7">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-sdb-2.2.9-74aa84f8f795eb9dc06529036f30e9bb9bd0f7a0.jar" />
     </item>
     <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-s3\2.2.9\7443aaa0bf4e865b734c9505a732c16bea4701eb\aws-android-sdk-s3-2.2.9.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="7443aaa0bf4e865b734c9505a732c16bea4701eb">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-s3-2.2.9-aee0bea02bb40b89d89d64d7b82532e252d16b18.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-c7561949b588211035e5e4885f5a9b822ace57e5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\classes-881c5dc8eb7dbd4bb5be0d1fd12670e1b1c2db39.jar" />
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\classes-c5c49999b3e352e7248a49fa54592dc6fc421696.jar" />
     </item>
     <item
-        jar="W:\GitHub Projects\GBFinal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\classes-4b7c7127e21f00eeee1aa47eeaf7072ec0a138a1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-cognito\2.2.8\9422788e375396a056e9542a82238115a3682bdb\aws-android-sdk-cognito-2.2.8.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="9422788e375396a056e9542a82238115a3682bdb">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-cognito-2.2.8-80bd702617a97f7308ad2ca566daa3b5ebf4783b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb-mapper\2.2.8\9c53790e9006c0ef098714201cb2d5f5672f6b3\aws-android-sdk-ddb-mapper-2.2.8.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="09c53790e9006c0ef098714201cb2d5f5672f6b3">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-mapper-2.2.8-1a0289f263741d70c21f46fa764ea944e9d51cbb.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-core\2.2.8\3e2b074a88e5ed4c58eeb4af2a55e604e314b93d\aws-android-sdk-core-2.2.8.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="3e2b074a88e5ed4c58eeb4af2a55e604e314b93d">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-core-2.2.8-f0871c98ca42490679b217752eb39c14dcc3ea53.jar" />
-    </item>
-    <item
-        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-sdb\2.2.8\eb7b3c9c62ed01d5af8cdc0231bb753c8a7774c3\aws-android-sdk-sdb-2.2.8.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="eb7b3c9c62ed01d5af8cdc0231bb753c8a7774c3">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-sdb-2.2.8-2c3ab1cc2810df76b66df584e441230ba5dc06fd.jar" />
-    </item>
-    <item
-        jar="E:\Users\Peter\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jar="C:\Users\Peter\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="W:\GitHub Projects\GBFinal\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-6f223528a6e1daa42f2ae2cdb6f43c4d84629250.jar" />
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-b1914a1a9e044cf02042950cb68b328f333b2e8b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb\2.2.9\ff5b0a523912a9f6b87cd5a9d853109f5d213905\aws-android-sdk-ddb-2.2.9.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ff5b0a523912a9f6b87cd5a9d853109f5d213905">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-2.2.9-dc6966f33c0f64cc3af0bf69c638d8440e61df79.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-cognito\2.2.9\fab4c593e36d5e615a1ca56da95116be4dc50bd1\aws-android-sdk-cognito-2.2.9.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="fab4c593e36d5e615a1ca56da95116be4dc50bd1">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-cognito-2.2.9-a1794ec2658400c3c86591730118230fca26d456.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\classes-bf1a263e8e271c2b0057caf43ad04bd174e46327.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-android-sdk-ddb-mapper\2.2.9\12ae73d2893c265d0134945bc0ac2befb62375a8\aws-android-sdk-ddb-mapper-2.2.9.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="12ae73d2893c265d0134945bc0ac2befb62375a8">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\aws-android-sdk-ddb-mapper-2.2.9-a586fcf9e00317f751b12030706d76657f7e0b25.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\classes-96a015b804a15b62cf6c0f1a9f8194bdad97b75d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
+        <dex dex="C:\Users\Peter\GymBuddy\GBFinal\app\build\intermediates\pre-dexed\debug\classes-c0ebec325368d5fca9328437a904584d649b4dd3.jar" />
     </item>
 
 </items>

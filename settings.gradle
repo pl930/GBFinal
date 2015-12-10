@@ -1,1 +1,1 @@
-include ':app', ':gymbuddy'
+include ':app'
