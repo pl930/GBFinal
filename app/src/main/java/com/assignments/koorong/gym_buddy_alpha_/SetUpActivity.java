@@ -10,6 +10,8 @@ import android.view.WindowManager;
 
 import com.assignments.koorong.gym_buddy_alpha_.Fragments.ProfileSetup.WelcomeFragment;
 
+/*Used for signing up for account
+* NO VALIDATION IMPLEMENTED SO MAKE SURE YOU FINISH THE SIGN UP PROCESS*/
 public class SetUpActivity extends AppCompatActivity {
 
     @Override

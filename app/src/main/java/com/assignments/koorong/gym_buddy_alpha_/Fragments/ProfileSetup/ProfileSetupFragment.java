@@ -22,7 +22,7 @@ import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 import com.assignments.koorong.gym_buddy_alpha_.User;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Setup your profile
  */
 public class ProfileSetupFragment extends Fragment {
 

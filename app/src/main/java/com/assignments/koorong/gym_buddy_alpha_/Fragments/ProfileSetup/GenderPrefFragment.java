@@ -18,9 +18,8 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.assignments.koorong.gym_buddy_alpha_.R;
 import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 import com.assignments.koorong.gym_buddy_alpha_.User;
-
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment to specify gender pref
  */
 public class GenderPrefFragment extends Fragment {
 

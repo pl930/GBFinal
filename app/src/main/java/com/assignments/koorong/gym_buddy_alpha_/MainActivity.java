@@ -10,6 +10,13 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+/*
+* Main Activity
+* Checks if user is logged in via sharedprefs.
+* If true
+*   go to matching activity
+* Else
+*   go to landing activity*/
 public class MainActivity extends AppCompatActivity {
     SessionManager sm;
 
@@ -23,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         sm = new SessionManager(getApplicationContext());
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        /*Check sharedprefs for logged in state*/
         if (!sm.isLoggedIn()) {
             Intent i = new Intent(getApplicationContext(), LandingActivity.class);
             startActivity(i);
@@ -32,14 +40,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }
-
-        /*Intent i = new Intent(getApplicationContext(), LandingActivity.class);
-        startActivity(i);
-        finish();*/
-
-//        Intent i = new Intent(getApplication(), SetUpActivity.class);
-//        startActivity(i);
-//        finish();
     }
 
     @Override

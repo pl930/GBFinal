@@ -24,7 +24,7 @@ import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 import com.assignments.koorong.gym_buddy_alpha_.User;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment for changing matching preferences
  */
 public class PreferencesFragment extends Fragment {
     int genPref;
@@ -32,6 +32,7 @@ public class PreferencesFragment extends Fragment {
     int exp;
     int agePref;
 
+    /*SharedPrefs*/
     SessionManager sm;
     public PreferencesFragment() {
         // Required empty public constructor
@@ -46,6 +47,7 @@ public class PreferencesFragment extends Fragment {
         LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
         final View view = localInflater.inflate(R.layout.fragment_preferences, container, false);
         sm = new SessionManager(getActivity().getApplicationContext());
+        /*Button OnCLick. */
         Button setup = (Button)view.findViewById(R.id.btnExpNext2);
         setup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +64,7 @@ public class PreferencesFragment extends Fragment {
         return view;
     }
 
+    /*Set global variable values to pass to updatePrefs()*/
     public void setValues(View view)
     {
         RadioGroup rg = (RadioGroup)view.findViewById(R.id.radioGenderPrefSet);
@@ -131,6 +134,7 @@ public class PreferencesFragment extends Fragment {
     }
 
 
+    /*DB call*/
     private class updatePrefs extends AsyncTask<Void, Void, Void>{
 
         @Override
@@ -140,11 +144,13 @@ public class PreferencesFragment extends Fragment {
 
         @Override
         protected Void doInBackground(Void... params) {
+            /*Cognito Credentials Provider. Passed to ddbClient to verify AWS usage*/
             CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
                     getActivity().getApplicationContext(),
                     "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
                     Regions.US_EAST_1 // Region
             );
+            /*Update user values in db.*/
             AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
             DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
             User selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());

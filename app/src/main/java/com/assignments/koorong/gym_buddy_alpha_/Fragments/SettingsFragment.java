@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.assignments.koorong.gym_buddy_alpha_.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Nothing Implemented. Just a placeholder for now
  */
 public class SettingsFragment extends Fragment {
 

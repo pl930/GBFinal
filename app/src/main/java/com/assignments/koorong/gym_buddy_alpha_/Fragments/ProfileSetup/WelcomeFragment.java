@@ -16,7 +16,7 @@ import com.assignments.koorong.gym_buddy_alpha_.R;
 import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Welcome frag on signup.
  */
 public class WelcomeFragment extends Fragment {
 

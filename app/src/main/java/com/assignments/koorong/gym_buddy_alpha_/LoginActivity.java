@@ -34,11 +34,17 @@ import butterknife.InjectView;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
-    UserDataSource ds = new UserDataSource(this);
+    //Used for early development debugging
+    /*UserDataSource ds = new UserDataSource(this);*/
     ProgressDialog progressDialog;
-    SharedPreferences pref;
     SessionManager sm;
 
+    /*ButterKnife injections
+    *
+    * Butterknife is an android injection library which simplifies binding of UI elements to the code.
+    * Read more here: http://jakewharton.github.io/butterknife/
+    * Very useful however, but decided against implementing into entire project since I(Peter) wasn't the only one working with the code
+    * */
     @InjectView(R.id.input_email) EditText _emailText;
     @InjectView(R.id.input_password) EditText _passwordText;
     @InjectView(R.id.btn_login) Button _loginButton;
@@ -55,12 +61,6 @@ public class LoginActivity extends AppCompatActivity {
         sm = new SessionManager(getApplicationContext());
 
 
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
-
-
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -70,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         _signupLink.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 // Start the Signup activity
@@ -82,62 +81,32 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-
+    /*Login method. Calls async task LoginAuth()*/
     public void login() {
-        Log.d(TAG, "Login");
-
         if (!validate()) {
             onLoginFailed();
             return;
         }
-
         _loginButton.setEnabled(false);
-
-        progressDialog = new ProgressDialog(LoginActivity.this, R.style.AppTheme_Dark_Dialog);
-        progressDialog.setMessage("Authenticating...");
-        progressDialog.show();
         new LoginAuth().execute();
-
-
-
-
     }
 
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_SIGNUP) {
-            if (resultCode == RESULT_OK) {
-
-                /*BRANDON I BELIEVE IN YOU*/
-                // By default we just finish the Activity and log them in automatically
-                // show(this.findViewById(android.R.id.content));
-                //_emailText.setError("enter a valid email address");
-                // valid = false;
-            }
-        }
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        // Disable going back to the MainActivity
-        moveTaskToBack(true);
-    }
-
+    /*Go to MatchActivity if called*/
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
         Intent i = new Intent(getApplicationContext(), MatchActivity.class);
-        //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
+        //finish activity to prevent going back to this page
         finish();
     }
 
+    /*failed login*/
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Wrong Username/Password", Toast.LENGTH_LONG).show();
         _loginButton.setEnabled(true);
     }
 
+    /*Validate user input*/
     public boolean validate() {
         boolean valid = true;
 
@@ -151,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
             _emailText.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
+        if (password.isEmpty() || password.length() < 6 || password.length() > 15) {
             _passwordText.setError("between 6 and 15 alphanumeric characters");
             valid = false;
         } else {
@@ -161,28 +130,38 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
+    /*Our login async task.*/
     private class LoginAuth extends AsyncTask<Void, Void, Void> {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
         boolean loginSuccess;
 
+        /*Show Progress Dialog*/
         public void onPreExecute(){
-
+            progressDialog = new ProgressDialog(LoginActivity.this, R.style.AppTheme_Dark_Dialog);
+            progressDialog.setMessage("Authenticating...");
+            progressDialog.show();
         }
 
 
+        /*Our database call*/
         @Override
         protected Void doInBackground(Void... params) {
             try {
+                /*Get Cognito User authentication credentials*/
                 CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
                         getApplicationContext(), //Context
                         "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
                         Regions.US_EAST_1 // Region
                 );
+                /*DB call. Pass in credentials to verify AWS user*/
                 AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+                /*Get db schema*/
                 DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+                /*load logged in user from db*/
                 User selectedUser = mapper.load(User.class, email);
 
+                /*Verify password.(Not best practise... we know)*/
                 if (selectedUser.getPassword().equalsIgnoreCase(password)) {
                     loginSuccess = true;
                     sm.createLoginSession(selectedUser.getName(), selectedUser.getEmail(), selectedUser.getLocation());
@@ -197,6 +176,7 @@ public class LoginActivity extends AppCompatActivity {
             return null;
         }
 
+        /*Close progress dialog*/
         @Override
         protected void onPostExecute(Void v) {
             super.onPostExecute(v);

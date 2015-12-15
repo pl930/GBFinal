@@ -46,7 +46,12 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*
+* Main Matching Activity
+* Contains NavDrawer
+* FrameLayout for content fragments
+*
+* */
 public class MatchActivity extends AppCompatActivity implements MatchUserFragment.OnItemSelectedListener {
     private String[] menuOptions;
     private DrawerLayout drawerLayout;
@@ -56,6 +61,7 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
     private ActionBarDrawerToggle drawerToggle;
 
     FragmentManager fm;
+    //SharedPrefs
     SessionManager sm;
 
     //Nav Drawer
@@ -105,11 +111,13 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
             }
         };
 
+        /*Update menu burger icon on drawer open/close. */
         drawerToggle.syncState();
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerLayout.setDrawerListener(drawerToggle);
 
 
+        /*Inflate header in navdrawer with logged in user info*/
         LayoutInflater inflater = getLayoutInflater();
 
         View navHead = inflater.inflate(R.layout.nav_header, null, false);
@@ -124,6 +132,7 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
 
         drawerList.addHeaderView(navHead);
 
+        /*Populate navDrawer items*/
         navMenuHeadings = getResources().getStringArray(R.array.nav_drawer_items);
         navMenuSubheadings = getResources().getStringArray(R.array.nav_drawer_subheads);
         navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);
@@ -156,6 +165,7 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
+    /*callback method!*/
     @Override
     public void onItemSelected(String email) {
 
@@ -232,6 +242,7 @@ public class MatchActivity extends AppCompatActivity implements MatchUserFragmen
         return true;
     }
 
+    /*Logout functionality here. Found in menu overflow*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {

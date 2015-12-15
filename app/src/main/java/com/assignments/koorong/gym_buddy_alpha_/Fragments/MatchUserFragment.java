@@ -33,11 +33,9 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
-import com.assignments.koorong.gym_buddy_alpha_.ProfileActivity;
 import com.assignments.koorong.gym_buddy_alpha_.R;
 import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 import com.assignments.koorong.gym_buddy_alpha_.User;
-import com.assignments.koorong.gym_buddy_alpha_.ViewProfile;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,6 +45,9 @@ import java.util.List;
 import java.util.Map;
 
 
+/*
+* Fragment to display matched users
+* */
 public class MatchUserFragment extends ListFragment {
     SessionManager sm;
     Activity activity;
@@ -82,6 +83,7 @@ public class MatchUserFragment extends ListFragment {
     }
 
 
+    /*Async for our db calls.*/
     private class getItems extends AsyncTask<Void, Void, Void> {
         ArrayList<User> ids;
         User selectedUser;
@@ -94,18 +96,22 @@ public class MatchUserFragment extends ListFragment {
         @Override
         protected Void doInBackground(Void... params) {
             ids = new ArrayList<>();
+            /*Database call*/
             try {
+                /*Cognito Credentials Provider. Passed to ddbClient to verify AWS usage*/
                 CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
                         getActivity().getApplicationContext(),
                         "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
                         Regions.US_EAST_1 // Region
                 );
+                /*Load logged-in user*/
                 AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
                 location = sm.getUserDetails().getLocation();
                 DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
                 selectedUser = mapper.load(User.class, sm.getUserDetails().getEmail());
                 ScanResult result = null;
 
+                /*Check all users in database*/
                 do {
                     ScanRequest req = new ScanRequest();
                     req.setTableName("Users");
@@ -118,6 +124,7 @@ public class MatchUserFragment extends ListFragment {
 
                     List<Map<String, AttributeValue>> rows = result.getItems();
 
+                    /*Filters users based on location. Adds viable users into ArrayList of users*/
                     for (Map<String, AttributeValue> map : rows) {
                         try {
                             User user = new User();
@@ -186,6 +193,9 @@ public class MatchUserFragment extends ListFragment {
             return null;
         }
 
+        /*if error, Display appropriate text for caught error.
+        * else,
+        * call compare method*/
         @Override
         protected void onPostExecute(Void v) {
             if(error){
@@ -196,10 +206,12 @@ public class MatchUserFragment extends ListFragment {
                 loading.dismiss();
                 //Toast.makeText(getActivity().getApplicationContext(), location, Toast.LENGTH_SHORT).show();
                 compare(ids, selectedUser);
-                //displayIds(getView(),ids);
+
             }
         }
     }
+
+    /*Compares users from ArrayList to logged-in user. Sort accordingly based on weighted preferences.*/
     private void compare(ArrayList<User> ids, User selectedUser)
     {
         int match = 0;
@@ -210,10 +222,7 @@ public class MatchUserFragment extends ListFragment {
                 ids.remove(i);
                 continue;
             }
-           /* if(selectedUser.getgenderPref() == ids.get(i).getgenderPref())
-            {
-                match = match+15;
-            }*/
+
             if(selectedUser.getgenderPref() == 2)  //you have no preference
             {
 
@@ -251,13 +260,12 @@ public class MatchUserFragment extends ListFragment {
         }
 
 
-
-        //Collections.sort(ids, new CustomComparator());
         Collections.sort(ids);
         displayIds(getView(),ids);
     }
 
 
+    /*Populate listView with users*/
     private void displayIds(View view, ArrayList<User> ids) {
         MatchUserAdapter adapter = new MatchUserAdapter(view.getContext(), R.layout.match_user_item, ids);
         ListView userList = (ListView)view.findViewById(android.R.id.list);
@@ -275,12 +283,14 @@ public class MatchUserFragment extends ListFragment {
         }
     }
 
+    /*Callback method for Listview onClick*/
     public interface OnItemSelectedListener{
         void onItemSelected(String email);
     }
 
 
 
+    /*OnCLick method for callback*/
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);

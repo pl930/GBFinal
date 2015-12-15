@@ -13,6 +13,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+/*Landing Activity.
+* A background with login/signup button
+* Planning to implement App preview instead of signup button*/
 public class LandingActivity extends AppCompatActivity {
 
     @Override
@@ -23,6 +26,7 @@ public class LandingActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_landing);
 
+        /*Set background*/
         ImageView background = (ImageView) findViewById(R.id.background);
         background.setScaleType(ImageView.ScaleType.CENTER_CROP);
         background.setImageBitmap(decodeBitmapSample(getResources(), R.drawable.bg_night, 480, 800));
@@ -39,9 +43,6 @@ public class LandingActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -58,12 +59,9 @@ public class LandingActivity extends AppCompatActivity {
         final int height = options.outHeight;
         final int width = options.outWidth;
         int inSampleSize = 1;
-
         if (height > reqHeight || width > reqWidth) {
-
             final int halfHeight = height / 2;
             final int halfWidth = width / 2;
-
             // Calculate the largest inSampleSize value that is a power of 2 and keeps both
             // height and width larger than the requested height and width.
             while ((halfHeight / inSampleSize) > reqHeight
@@ -75,6 +73,7 @@ public class LandingActivity extends AppCompatActivity {
         return inSampleSize;
     }
 
+    /*Decode bitmap in order to apply as background. Code mostly from stackoverflow but cant seem to find it again.*/
     public static Bitmap decodeBitmapSample(Resources res, int resId, int reqWidth, int reqHeight){
         final BitmapFactory.Options opt = new BitmapFactory.Options();
         opt.inJustDecodeBounds = true;
@@ -86,6 +85,7 @@ public class LandingActivity extends AppCompatActivity {
         return BitmapFactory.decodeResource(res, resId, opt);
     }
 
+    /*Button functionality. Bound in xml*/
     public void signUp(View view) {
         Intent i = new Intent(getApplicationContext(), SignupActivity.class);
         startActivity(i);

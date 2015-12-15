@@ -23,7 +23,7 @@ import com.assignments.koorong.gym_buddy_alpha_.User;
 import java.util.zip.Inflater;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment to specify age pref
  */
 public class AgeprefFragment extends Fragment {
 

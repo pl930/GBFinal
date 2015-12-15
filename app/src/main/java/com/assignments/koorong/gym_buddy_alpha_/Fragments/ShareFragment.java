@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import com.assignments.koorong.gym_buddy_alpha_.R;
 
+/**
+ * Nothing Implemented. Just a placeholder for now
+ */
 public class ShareFragment extends Fragment {
 
     public ShareFragment() {

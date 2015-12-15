@@ -21,7 +21,7 @@ import com.assignments.koorong.gym_buddy_alpha_.SessionManager;
 import com.assignments.koorong.gym_buddy_alpha_.User;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment to specify experience pref
  */
 public class ExpPrefFragment extends Fragment {
 

@@ -9,6 +9,11 @@ import java.util.HashMap;
 
 /**
  * Created by Peter on 08/11/2015.
+ *
+ * Stores user login info in order to maintain logged in state.
+ * Cleared when the user LOGS OUT or clears app data.
+ *
+ * Methods are pretty self explanatory
  */
 public class SessionManager {
     SharedPreferences pref;
@@ -34,6 +39,7 @@ public class SessionManager {
         editor = pref.edit();
     }
 
+    /*Creates log in session. Stores user login info*/
     public void createLoginSession(String name,String email, String location){
         editor.putBoolean(IS_LOGGED_IN, true)
                 .putString(KEY_NAME, name)
@@ -41,6 +47,10 @@ public class SessionManager {
                 .putString(KEY_LOCATION, location)
                 .commit();
     }
+    /************
+     * Used when setting up profile
+     * */
+
     public void setUpProfile(int Age, boolean gender)
     {
         editor.putInt(KEY_AGE, Age)
@@ -65,16 +75,9 @@ public class SessionManager {
         editor.putInt(KEY_EXPERIENCE, experience)
                 .commit();
     }
+    /******************************************/
 
-    public void checkLogin(){
-        if(!this.isLoggedIn()){
-            Intent i = new Intent(_context, LoginActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            _context.startActivity(i);
-        }
-    }
-
+    /*Used when checking login state in mainActivity*/
     public boolean isLoggedIn(){
         return pref.getBoolean(IS_LOGGED_IN, false);
     }

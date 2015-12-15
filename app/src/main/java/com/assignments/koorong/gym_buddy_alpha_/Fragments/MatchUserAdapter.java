@@ -16,7 +16,7 @@ import com.assignments.koorong.gym_buddy_alpha_.User;
 import java.util.ArrayList;
 
 /**
- * Created by Peter on 04/11/2015.
+ * Adapter for matched users list item in MatchUserFragment
  */
 public class MatchUserAdapter extends ArrayAdapter<User>{
     private Context context;
@@ -47,7 +47,7 @@ public class MatchUserAdapter extends ArrayAdapter<User>{
         name.setText(uName);
         email.setText(user.getEmail());
         //num.setText("1");
-        num.setText(Integer.toString(data.get(position).getexerciseType()));
+        num.setText("Match Weight: " + Integer.toString(data.get(position).getexerciseType()));
 
 
 

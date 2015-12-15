@@ -7,7 +7,7 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBIndexRan
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
 
 /**
- * Created by Brandon on 10/14/2015.
+ * User class
  */
 @DynamoDBTable(tableName = "Users")
 public class User implements Comparable {

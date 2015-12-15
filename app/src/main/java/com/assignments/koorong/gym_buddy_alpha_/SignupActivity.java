@@ -25,6 +25,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+/*Similar to LoginActivity*/
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
     SessionManager sm;
@@ -35,15 +36,10 @@ public class SignupActivity extends AppCompatActivity {
     EditText _emailText;
     @InjectView(R.id.input_password)
     EditText _passwordText;
-   // @InjectView(R.id.input_location)
-    //EditText _location;
     @InjectView(R.id.btn_signup)
     Button _signupButton;
     @InjectView(R.id.link_login)
     TextView _loginLink;
-
-
-//    ProgressDialog progressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,11 +92,6 @@ public class SignupActivity extends AppCompatActivity {
 
         _signupButton.setEnabled(false);
 
-//        progressDialog = new ProgressDialog(SignupActivity.this,
-//                R.style.AppTheme_Dark_Dialog);
-//        progressDialog.setIndeterminate(true);
-//        progressDialog.setMessage("Creating Account...");
-//        progressDialog.show();
 
         new SignUpAuth().execute();
 
@@ -126,7 +117,7 @@ public class SignupActivity extends AppCompatActivity {
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-        Spinner spinner = (Spinner)findViewById(R.id.location_spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.location_spinner);
         String text = spinner.getSelectedItem().toString();
         String location = text;
 
@@ -150,48 +141,41 @@ public class SignupActivity extends AppCompatActivity {
         } else {
             _passwordText.setError(null);
         }
-
-//        if (location.isEmpty()) {
-//            _location.setError("enter valid location");
-//            valid = false;
-//        } else {
-//            _location.setError(null);
-//        }
-
         return valid;
     }
 
+    /*Adds user to database.*/
     private class SignUpAuth extends AsyncTask<Void, Void, Void> {
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-        Spinner spinner = (Spinner)findViewById(R.id.location_spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.location_spinner);
         String text = spinner.getSelectedItem().toString();
         String location = text;
-        //validate();
+
+        /*Database call*/
         @Override
         protected Void doInBackground(Void... params) {
 
+            try {
+                CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+                        getApplicationContext(),
+                        "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
+                        Regions.US_EAST_1 // Region
+                );
+                AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
+                /*Stores sign up info in user class. Sends to mapper to save to db*/
+                User user = new User();
+                user.setEmail(email);
+                user.setName(name);
+                user.setPassword(password);
+                user.setLocation(location);
+                DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+                mapper.save(user);
 
-                try {
-                    CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                            getApplicationContext(),
-                            "us-east-1:cbaeddaa-0588-4ec5-a367-11895f99e2c8", // Identity Pool ID
-                            Regions.US_EAST_1 // Region
-                    );
-                    AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
-
-                    User user = new User();
-                    user.setEmail(email);
-                    user.setName(name);
-                    user.setPassword(password);
-                    user.setLocation(location);
-                    DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
-                    mapper.save(user);
-
-                } catch (Exception ex) {
-                    onSignupFailed();
-                }
+            } catch (Exception ex) {
+                onSignupFailed();
+            }
 
             return null;
         }

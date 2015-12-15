@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              tools:context="com.example.brandon.gymbuddy.ProfileActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:textColor="@color/black"
+    tools:context="com.example.brandon.gymbuddy.ProfileActivity">
 
 
     <LinearLayout
@@ -12,80 +13,85 @@
         android:layout_weight="0.4">
 
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:src="@drawable/face"
-        android:id="@+id/profilePic"/>
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/face" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.4"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text=""
-        android:id="@+id/profileName"/>
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="32sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Burlington"
-        android:id="@+id/textView2"/>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Burlington"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@android:color/black" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text=""
-            android:id="@+id/matchSummary2"/>
 
         <TextView
+            android:id="@+id/matchSummary2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
             android:text=""
-            android:id="@+id/matchFrequency"/>
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/matchFrequency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
             android:text=""
-            android:id="@+id/matchExp"/>
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/matchExp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:orientation="horizontal"
-            >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:layout_gravity="bottom"
-                android:text="Back"
-                android:id="@+id/denyButton"
-                />
+            android:orientation="horizontal">
 
             <Button
+                android:id="@+id/denyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
                 android:layout_gravity="bottom"
-                android:text="Match"
+                android:layout_weight="0.5"
+                android:text="Back" />
+
+            <Button
                 android:id="@+id/matchButton"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="0.5"
+                android:text="Match" />
 
         </LinearLayout>
 
